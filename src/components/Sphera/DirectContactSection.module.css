@@ -1,0 +1,180 @@
+.section {
+  padding: 100px 0 110px 0;
+  background: linear-gradient(180deg, #121316 0%, #0e0f12 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.ambientGlow {
+  position: absolute;
+  top: 10%;
+  left: -80px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 211, 102, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.card {
+  background: rgba(20, 22, 28, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 48px 56px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 960px) {
+  .card {
+    grid-template-columns: 1fr;
+    padding: 36px 24px;
+    gap: 36px;
+  }
+}
+
+/* Left Contact Info */
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #ffd8a8;
+  text-transform: uppercase;
+}
+
+.heading {
+  font-family: var(--font-main);
+  font-size: clamp(34px, 4.2vw, 50px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.personName {
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-top: 4px;
+}
+
+.personRole {
+  font-size: 14px;
+  color: #25d366;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.description {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 520px;
+}
+
+.mottoBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: rgba(255, 216, 168, 0.08);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 216, 168, 0.25);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+  margin-top: 8px;
+}
+
+.mottoText {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #ffd8a8;
+  letter-spacing: 0.02em;
+}
+
+/* Right Action Buttons Box */
+.actionsCol {
+  background: rgba(30, 32, 40, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 22px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+.directPhone {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.whatsappBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 15px;
+  background-color: #25d366;
+  color: #121316;
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.whatsappBtn:hover {
+  background-color: #2be873;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.45);
+}
+
+.callBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px;
+  background-color: #ffffff;
+  color: #121316;
+  border-radius: var(--radius-pill);
+  font-size: 14.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.callBtn:hover {
+  background-color: #f0f1f5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}

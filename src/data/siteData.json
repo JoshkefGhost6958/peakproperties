@@ -1,0 +1,538 @@
+{
+  "villas": [
+    {
+      "id": "lavington-eden-villa",
+      "title": "Eden Forest Villa · Lavington",
+      "location": "Lavington",
+      "neighborhood": "Mbaazi Avenue, Lavington",
+      "area": "4 Beds · 450 m² · 0.5 Acre Compound",
+      "price": "KES 68,000,000",
+      "bedrooms": 4,
+      "bathrooms": 5,
+      "image": "/images/sphera-villa1.jpg",
+      "verified": true,
+      "isPublished": true,
+      "featured": true,
+      "description": "Exclusive modern villa nestled in prime Lavington with a heated swimming pool, double-height living salon, mature trees, and high-security gated cul-de-sac. What you see is what you get.",
+      "features": [
+        "0.5 Acre Private Compound",
+        "Heated Pool",
+        "Solar Power System",
+        "DSQ for 2"
+      ]
+    },
+    {
+      "id": "westlands-cubist-villa",
+      "title": "The Glass House Villa · Westlands",
+      "location": "Westlands",
+      "neighborhood": "Rhapta Road, Westlands",
+      "area": "5 Beds · 520 m² · Private Courtyard",
+      "price": "KES 82,000,000",
+      "bedrooms": 5,
+      "bathrooms": 6,
+      "image": "/images/sphera-villa2.jpg",
+      "verified": true,
+      "isPublished": true,
+      "featured": true,
+      "description": "Striking contemporary architectural residence in quiet Westlands suburb. Cantilevered master suite, rooftop terrace, elevator provision, and European minimalist finishes.",
+      "features": [
+        "Rooftop Sunset Lounge",
+        "Floor-to-ceiling glass",
+        "Smart Security",
+        "4 Car Garage"
+      ]
+    },
+    {
+      "id": "lavington-stone-villa",
+      "title": "James Gichuru Contemporary Villa",
+      "location": "Lavington",
+      "neighborhood": "Off James Gichuru, Lavington",
+      "area": "4 Beds · 390 m² · Private Lawn",
+      "price": "KES 59,000,000",
+      "bedrooms": 4,
+      "bathrooms": 4.5,
+      "image": "/images/sphera-hero.jpg",
+      "verified": true,
+      "isPublished": true,
+      "featured": false,
+      "description": "Sophisticated single-family villa with natural stone cladding, manicured front lawn, chef's kitchen, and serene quiet environment. Available for immediate site inspection.",
+      "features": [
+        "Perimeter Electric Fence",
+        "Borehole Water Backup",
+        "Family TV Room",
+        "Private Office"
+      ]
+    }
+  ],
+  "land": [
+    {
+      "id": "lavington-half-acre-prime",
+      "title": "0.5 Acre Prime Residential Plot · Lavington",
+      "location": "Lavington",
+      "neighborhood": "Off Mbaazi Avenue / James Gichuru, Lavington",
+      "area": "0.50 Acre (Approx. 2,023 m²)",
+      "price": "KES 78,000,000",
+      "zoning": "Low Density Residential",
+      "soil": "Rich Red Soil, Gentle Slope",
+      "titleType": "Freehold Ready Title Deed",
+      "image": "/images/land-lavington.jpg",
+      "verified": true,
+      "isPublished": true,
+      "featured": true,
+      "description": "Exceptionally rare 0.5-acre parcel in secluded, prestigious Lavington cul-de-sac. Surrounded by mature indigenous trees, completely beaconed with stone perimeter wall, water and electricity connected.",
+      "features": [
+        "Ready Clean Title Deed",
+        "Perimeter Stone Wall in place",
+        "Electricity & Water connected"
+      ]
+    },
+    {
+      "id": "westlands-commercial-residential-plot",
+      "title": "0.75 Acre Redevelopment Land · Westlands",
+      "location": "Westlands",
+      "neighborhood": "Rhapta Road, Westlands",
+      "area": "0.75 Acre (Approx. 3,035 m²)",
+      "price": "KES 145,000,000",
+      "zoning": "High-Density Residential / Mixed-Use",
+      "soil": "Firm Red Soil, Flat Gradient",
+      "titleType": "Clean Leasehold 99 Years",
+      "image": "/images/land-westlands.jpg",
+      "verified": true,
+      "isPublished": true,
+      "featured": true,
+      "description": "Strategic corner land parcel fronting Rhapta Road in Westlands. Perfectly primed for high-end boutique apartments, modern executive townhouses, or luxury town villas.",
+      "features": [
+        "Direct Tarmac Frontage",
+        "High Density Zoning Permission",
+        "Clean Title, Official Search Ready"
+      ]
+    }
+  ],
+  "apartments": [
+    {
+      "id": "rhapta-luxury-two-bed",
+      "title": "The Horizon 2-Bedroom Suite · Westlands",
+      "location": "Westlands",
+      "neighborhood": "Rhapta Road, Westlands",
+      "area": "2 Beds · 128 m² · High Floor",
+      "price": "KES 18,500,000",
+      "bedrooms": 2,
+      "bathrooms": 2.5,
+      "image": "/images/twobed.jpg",
+      "verified": true,
+      "isPublished": true,
+      "featured": true,
+      "description": "Contemporary two-bedroom master en-suite apartment featuring German kitchen fittings, floor-to-ceiling soundproof double glazing, solar water heating, and wrap-around sunset balcony.",
+      "features": [
+        "Heated Rooftop Pool",
+        "High Speed Lifts",
+        "Full Backup Generator",
+        "Borehole Water"
+      ]
+    },
+    {
+      "id": "lavington-penthouse-three-bed",
+      "title": "Terrace Skyline 3-Bed Penthouse · Lavington",
+      "location": "Lavington",
+      "neighborhood": "Off James Gichuru, Lavington",
+      "area": "3 Beds · 210 m² · Rooftop Terrace",
+      "price": "KES 32,000,000",
+      "bedrooms": 3,
+      "bathrooms": 3.5,
+      "image": "/images/onebed.jpg",
+      "verified": true,
+      "isPublished": true,
+      "featured": false,
+      "description": "Expansive top-floor penthouse with private cedar sundeck, custom hardwood cabinetry, self-contained staff quarters, and dedicated twin parking bays.",
+      "features": [
+        "Private Sky Terrace",
+        "DSQ with Separate Access",
+        "Clubhouse & Gym"
+      ]
+    }
+  ],
+  "bnbs": [
+    {
+      "id": "lavington-hillside-suite",
+      "title": "Hillside Glass Sanctuary Suite · Lavington",
+      "location": "Lavington",
+      "neighborhood": "Mbaazi Avenue, Lavington",
+      "area": "Entire Suite · 2 Guests · King Bed",
+      "price": "KES 11,500 / night",
+      "type": "suite",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "image": "/images/peak-bnb.jpg",
+      "verified": true,
+      "isPublished": true,
+      "featured": true,
+      "description": "Modernist luxury retreat with panoramic floor-to-ceiling glass, private balcony overlooking lush greenery, rainfall shower, 100Mbps dedicated fiber WiFi, and bespoke kitchenette.",
+      "features": [
+        "High-Speed 100Mbps WiFi",
+        "Smart 4K TV & Netflix",
+        "Daily Housekeeping"
+      ]
+    },
+    {
+      "id": "westlands-skyline-executive-loft",
+      "title": "Rhapta Skyline Executive Studio · Westlands",
+      "location": "Westlands",
+      "neighborhood": "Rhapta Road, Westlands",
+      "area": "Studio Loft · 2 Guests · Queen Bed",
+      "price": "KES 8,500 / night",
+      "type": "studio",
+      "bedrooms": 0,
+      "bathrooms": 1,
+      "image": "/images/studio.jpg",
+      "verified": true,
+      "isPublished": true,
+      "featured": true,
+      "description": "Chic urban oasis moments from Westlands nightlife and business hubs. Heated rooftop pool access, gym, secure biometric entry, and silent workspace.",
+      "features": [
+        "Rooftop Heated Pool",
+        "24/7 Concierge & Security",
+        "Washer/Dryer"
+      ]
+    }
+  ],
+  "engineers": [
+    {
+      "id": "eng-1",
+      "name": "Eng. Patrick Kamau",
+      "role": "Lead Structural & Civil Engineer",
+      "license": "EBK / NCA-1 #48921",
+      "phone": "+254 722 456 789",
+      "email": "kamau@apexbuilders.co.ke",
+      "company": "Apex Structural Engineers & Master Builders",
+      "status": "Active",
+      "projectAccess": true,
+      "assignedProjects": [
+        "The Lavington Glass Sanctuary"
+      ],
+      "completedProjects": 18,
+      "rating": "4.9 ★"
+    },
+    {
+      "id": "eng-2",
+      "name": "Arch. Brian Ochieng",
+      "role": "Principal Architectural Designer",
+      "license": "BORAQS #2940",
+      "phone": "+254 733 892 110",
+      "email": "ochieng@vanguardurban.co.ke",
+      "company": "Vanguard Urban Contractors Ltd",
+      "status": "Active",
+      "projectAccess": true,
+      "assignedProjects": [
+        "Rhapta Contemporary Cantilever Villa"
+      ],
+      "completedProjects": 12,
+      "rating": "5.0 ★"
+    },
+    {
+      "id": "eng-3",
+      "name": "Eng. Faith Mutua",
+      "role": "Senior MEP & Geotechnical Consultant",
+      "license": "EBK #51208",
+      "phone": "+254 710 334 901",
+      "email": "fmutua@nairobibuilders.co.ke",
+      "company": "Metro Foundations & MEP Engineering",
+      "status": "Disabled",
+      "projectAccess": false,
+      "assignedProjects": [],
+      "completedProjects": 7,
+      "rating": "4.7 ★"
+    }
+  ],
+  "construction": [
+    {
+      "id": "lavington-glass-residence",
+      "title": "The Lavington Glass Sanctuary",
+      "type": "Turnkey Luxury Villa Construction",
+      "location": "Mbaazi Avenue, Lavington",
+      "duration": "11 Months Handover",
+      "area": "480 m² · 4 Bedrooms En-suite",
+      "image": "/images/sphera-villa1.jpg",
+      "contractor": "Apex Structural Engineers & Master Builders",
+      "leadEngineer": "Eng. Patrick Kamau",
+      "projectAccess": true,
+      "status": "Handed Over & Verified",
+      "isPublished": true,
+      "description": "Matched client with a registered architect for custom 3D isometric plans, followed by an NCA-1 verified contractor. Delivered exactly to budget and on schedule."
+    },
+    {
+      "id": "westlands-cubist-villa-project",
+      "title": "Rhapta Contemporary Cantilever Villa",
+      "type": "Architectural Design & Ground-Up Build",
+      "location": "Rhapta Road, Westlands",
+      "duration": "13 Months Handover",
+      "area": "560 m² · 5 Bedrooms En-suite",
+      "image": "/images/sphera-villa2.jpg",
+      "contractor": "Vanguard Urban Contractors Ltd",
+      "leadEngineer": "Arch. Brian Ochieng",
+      "projectAccess": true,
+      "status": "Finishing Stage",
+      "isPublished": true,
+      "description": "Bold cubist private residence with 7-meter cantilevered master suites, heated pool, and bespoke acoustic insulation."
+    }
+  ],
+  "heroSlides": [
+    {
+      "id": "villas",
+      "category": "Villas",
+      "navLabel": "Villas",
+      "tag": "VERIFIED LUXURY VILLAS",
+      "headline": "Luxury Contemporary Villas",
+      "subtitle": "Hand-curated private villas with heated swimming pools and mature gardens in Lavington & Karen. What you see is what you get.",
+      "image": "/images/sphera-villa1.jpg",
+      "href": "/villas",
+      "ctaText": "Explore Villas Collection",
+      "active": true,
+      "card1": {
+        "category": "Lavington Villa",
+        "title": "Eden Forest Villa",
+        "specs": "4 Beds · 450 m² · Pool",
+        "price": "KES 68,000,000",
+        "image": "/images/sphera-villa1.jpg"
+      },
+      "card2": {
+        "category": "Westlands Villa",
+        "title": "The Glass House Villa",
+        "specs": "5 Beds · 520 m² · Terrace",
+        "price": "KES 82,000,000",
+        "image": "/images/sphera-villa2.jpg"
+      }
+    },
+    {
+      "id": "land",
+      "category": "Land",
+      "navLabel": "Land",
+      "tag": "PRIME RESIDENTIAL LAND",
+      "headline": "Prime Land & Building Plots",
+      "subtitle": "Title-verified red-soil parcels ready for luxury single-family villas or development in Westlands & Lavington.",
+      "image": "/images/land-lavington.jpg",
+      "href": "/land",
+      "ctaText": "Explore Land & Plots",
+      "active": true,
+      "card1": {
+        "category": "Lavington Plot",
+        "title": "0.5 Acre Residential Plot",
+        "specs": "Clean Title · Gentle Slope",
+        "price": "KES 78,000,000",
+        "image": "/images/land-lavington.jpg"
+      },
+      "card2": {
+        "category": "Westlands Plot",
+        "title": "0.75 Acre Rhapta Road",
+        "specs": "High-Density Mixed-Use",
+        "price": "KES 145,000,000",
+        "image": "/images/land-westlands.jpg"
+      }
+    },
+    {
+      "id": "apartments",
+      "category": "Apartments",
+      "navLabel": "Apartments",
+      "tag": "EXECUTIVE MODERN APARTMENTS",
+      "headline": "Luxury & Executive Apartments",
+      "subtitle": "Modern master en-suite residences and penthouses with rooftop infinity pools along Rhapta Road & General Mathenge.",
+      "image": "/images/twobed.jpg",
+      "href": "/apartments",
+      "ctaText": "Explore All Apartments",
+      "active": true,
+      "card1": {
+        "category": "Westlands Suite",
+        "title": "The Horizon 2-Bedroom",
+        "specs": "2 Beds · 128 m² · High Floor",
+        "price": "KES 18,500,000",
+        "image": "/images/twobed.jpg"
+      },
+      "card2": {
+        "category": "Lavington Penthouse",
+        "title": "Terrace Skyline 3-Bed",
+        "specs": "3 Beds · 210 m² · Sky Deck",
+        "price": "KES 32,000,000",
+        "image": "/images/onebed.jpg"
+      }
+    },
+    {
+      "id": "bnbs",
+      "category": "BnBs",
+      "navLabel": "BnBs",
+      "tag": "BOUTIQUE STAYS & SUITES",
+      "headline": "Curated Stays & Executive Suites",
+      "subtitle": "Architectural boutique suites and penthouses with hotel-grade linen, fast Wi-Fi, and 24/7 concierge in Westlands & Lavington.",
+      "image": "/images/peak-bnb.jpg",
+      "href": "/bnbs",
+      "ctaText": "Browse Available Stays",
+      "active": true,
+      "card1": {
+        "category": "Lavington Stay",
+        "title": "Hillside Sanctuary Suite",
+        "specs": "King Suite · Green Views",
+        "price": "KES 11,500 / night",
+        "image": "/images/peak-bnb.jpg"
+      },
+      "card2": {
+        "category": "Westlands Stay",
+        "title": "Rhapta Skyline Studio",
+        "specs": "Studio Loft · Heated Pool",
+        "price": "KES 8,500 / night",
+        "image": "/images/studio.jpg"
+      }
+    },
+    {
+      "id": "construction",
+      "category": "Construction",
+      "navLabel": "Construction",
+      "tag": "DESIGN & BUILD PARTNERS",
+      "headline": "Turnkey Architectural Construction",
+      "subtitle": "Let's build you your dream house. Connect with verified structural engineers, licensed architects, and vetted NCA contractors.",
+      "image": "/images/sphera-villa2.jpg",
+      "href": "/construction",
+      "ctaText": "Start Your Dream Build",
+      "active": true,
+      "card1": {
+        "category": "Active Build",
+        "title": "The Lavington Sanctuary",
+        "specs": "Turnkey Build · 11 Mo",
+        "price": "Completed & Verified",
+        "image": "/images/sphera-villa1.jpg"
+      },
+      "card2": {
+        "category": "Active Build",
+        "title": "Rhapta Cantilever Villa",
+        "specs": "Architectural Design",
+        "price": "In Construction",
+        "image": "/images/sphera-villa2.jpg"
+      }
+    }
+  ],
+  "viewings": [
+    {
+      "id": "view-101",
+      "clientName": "Grace Wanjiku",
+      "phone": "0711234567",
+      "propertyType": "Villas",
+      "preferredDate": "2026-10-30",
+      "timeSlot": "Morning (10:00 AM)",
+      "status": "Confirmed",
+      "notes": "Interested in viewing Eden Forest Villa in Lavington.",
+      "createdAt": "2026-10-26T14:30:00Z"
+    },
+    {
+      "id": "view-102",
+      "clientName": "David Mwangi",
+      "phone": "0722987654",
+      "propertyType": "Land",
+      "preferredDate": "2026-11-02",
+      "timeSlot": "Afternoon (02:00 PM)",
+      "status": "Pending",
+      "notes": "Wants beacon verification on 0.5 acre Lavington plot.",
+      "createdAt": "2026-10-26T15:15:00Z"
+    }
+  ],
+  "contractorIncentives": [
+    {
+      "id": "inc-01",
+      "title": "On-Time Handover Speed Bonus",
+      "category": "Timeline & Schedule Delivery",
+      "tier": "Tier 1 Priority",
+      "criteria": "Completion and client handover accomplished within or ahead of contract schedule with zero structural snag list.",
+      "reward": "+4.0% Milestone Cash Bonus + Priority Tender Allocation for Next Villa Build",
+      "bonusAmount": "KES 1,500,000",
+      "contractor": "Apex Structural Engineers & Master Builders",
+      "project": "The Lavington Glass Sanctuary",
+      "status": "Awarded",
+      "awardedDate": "2026-10-20"
+    },
+    {
+      "id": "inc-02",
+      "title": "Zero-Defect Architectural QA Excellence",
+      "category": "Quality Assurance & Engineering",
+      "tier": "Gold Quality Standard",
+      "criteria": "First-pass clearance on county approvals, acoustic insulation compliance, and independent EBK engineering audit.",
+      "reward": "+2.5% Performance Bonus + Verified Quality Badge on Public Website",
+      "bonusAmount": "KES 950,000",
+      "contractor": "Vanguard Urban Contractors Ltd",
+      "project": "Rhapta Contemporary Cantilever Villa",
+      "status": "Active Target",
+      "awardedDate": null
+    },
+    {
+      "id": "inc-03",
+      "title": "Site Safety & NCA-1 Environmental Compliance",
+      "category": "Safety & Regulatory Standards",
+      "tier": "Safety Excellence",
+      "criteria": "100% OSHA and NCA incident-free record, bio-drainage protection, and structured debris recycling.",
+      "reward": "+KES 500,000 Safety Discretionary Fund + Express Invoice Clearance (48hr)",
+      "bonusAmount": "KES 500,000",
+      "contractor": "Apex Structural Engineers & Master Builders",
+      "project": "General Mathenge Architectural Villa",
+      "status": "Under Review",
+      "awardedDate": null
+    },
+    {
+      "id": "inc-04",
+      "title": "Client 5-Star Testimonial & Snag-Free Handover",
+      "category": "Client Satisfaction Guarantee",
+      "tier": "Client Delight",
+      "criteria": "Client gives a verified 5.0 rating on final handover and agrees to a video testimonial for Peak Housing.",
+      "reward": "+3.0% Project Completion Retainer Advance + Featured Contractor Case Study",
+      "bonusAmount": "KES 1,200,000",
+      "contractor": "Vanguard Urban Contractors Ltd",
+      "project": "Spring Valley Eco-Modernist Estate",
+      "status": "Active Target",
+      "awardedDate": null
+    }
+  ],
+  "tickets": [
+    {
+      "id": "TIC-5175",
+      "clientName": "Dr. Kevin Mutua",
+      "email": "k.mutua@health.go.ke",
+      "phone": "0711223344",
+      "interest": "Turnkey House Construction",
+      "preferredLocation": "Westlands",
+      "subject": "Turnkey House Construction - Client",
+      "message": "We want to begin architectural excavation next month. Please get in touch regarding verified contractors.",
+      "status": "Open",
+      "priority": "High",
+      "createdAt": "2026-10-26T18:01:43.014Z",
+      "replies": []
+    },
+    {
+      "id": "TIC-1041",
+      "clientName": "Ambassador Marcus Odhiambo",
+      "email": "m.odhiambo@diplomatic.org",
+      "phone": "0722334455",
+      "interest": "Villa or Apartment Viewing",
+      "preferredLocation": "Lavington",
+      "subject": "Private Viewing Request: Eden Forest Villa",
+      "message": "Looking to inspect Eden Forest Villa this Saturday. Kindly arrange a private security detail for access and verify title deed availability.",
+      "status": "Open",
+      "priority": "Urgent",
+      "createdAt": "2026-10-26T15:20:00Z",
+      "replies": []
+    },
+    {
+      "id": "TIC-1040",
+      "clientName": "Wanjiru Karanja",
+      "email": "wanjiru.karanja@gmail.com",
+      "phone": "0733887766",
+      "interest": "Architectural Design & Build",
+      "preferredLocation": "Westlands",
+      "subject": "Ground-Up Construction on 0.75 Acre Plot",
+      "message": "I have purchased a plot on Rhapta Road and want to partner with your NCA-1 verified contractors for a contemporary 5-bedroom villa build.",
+      "status": "In Progress",
+      "priority": "High",
+      "createdAt": "2026-10-26T14:10:00Z",
+      "replies": [
+        {
+          "sender": "Joseph Simiyu Kefa",
+          "text": "Initial feasibility discussion completed via phone. Meeting scheduled on site for Thursday 10:00 AM.",
+          "date": "2026-10-26T15:00:00Z"
+        }
+      ]
+    }
+  ]
+}

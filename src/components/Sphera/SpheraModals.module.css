@@ -1,0 +1,219 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(10, 11, 14, 0.78);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: heroFadeInUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modalWindow {
+  background: rgba(24, 26, 33, 0.88);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border-radius: 28px;
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.7), inset 0 1px 1px 0 rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 40px;
+  color: #ffffff;
+  animation: heroFadeInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modalWindowWide {
+  max-width: 880px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: all var(--transition-fast);
+}
+
+.closeBtn:hover {
+  background: #ffffff;
+  color: #121316;
+  transform: rotate(90deg) scale(1.08);
+}
+
+/* Header */
+.modalHeader {
+  margin-bottom: 26px;
+}
+
+.modalTag {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #ffd8a8;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.modalTitle {
+  font-family: var(--font-main);
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.modalSubtitle {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* Form */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.formLabel {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.formInput, .formSelect {
+  width: 100%;
+  padding: 13px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background-color: rgba(18, 19, 24, 0.7);
+  font-size: 14px;
+  color: #ffffff;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.formInput:focus, .formSelect:focus {
+  border-color: #ffffff;
+  background-color: rgba(22, 24, 30, 0.95);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 15px;
+  border-radius: var(--radius-pill);
+  background-color: #ffffff;
+  color: #121316;
+  font-size: 14.5px;
+  font-weight: 800;
+  text-align: center;
+  transition: all var(--transition-fast);
+  margin-top: 10px;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.18);
+}
+
+.submitBtn:hover {
+  background-color: #f1f2f5;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(255, 255, 255, 0.3);
+}
+
+/* Case Study Grid */
+.caseGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  margin-top: 10px;
+}
+
+@media (max-width: 800px) {
+  .caseGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.caseMedia {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+.caseImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caseSpecsTable {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 0;
+  margin: 16px 0;
+}
+
+.caseSpecRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+}
+
+.specLabel {
+  color: var(--text-muted);
+}
+
+.specVal {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.successBox {
+  text-align: center;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.successIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: rgba(37, 211, 102, 0.15);
+  border: 1px solid rgba(37, 211, 102, 0.3);
+  color: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

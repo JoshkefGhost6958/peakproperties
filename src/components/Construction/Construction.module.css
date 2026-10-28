@@ -1,0 +1,183 @@
+.section {
+  padding: 80px 0;
+  background-color: #f7f7f9;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 50px 0;
+  }
+}
+
+.headerRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .headerRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 3.8vw, 46px);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--text-primary);
+}
+
+.liveBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #17181a;
+  background-color: #ffffff;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.liveDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ef4444;
+  animation: pulseGlow 1.8s infinite;
+}
+
+/* Progress Grid */
+.progressGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 36px;
+  align-items: center;
+}
+
+@media (max-width: 940px) {
+  .progressGrid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+/* Left: Photo / Cam Preview Card */
+.previewCard {
+  position: relative;
+  height: 360px;
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.previewOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, transparent 100%);
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.previewTitle {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.previewDate {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* Right: Progress Meters */
+.metricsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.metricItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metricHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.metricPercent {
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.progressBarBg {
+  width: 100%;
+  height: 8px;
+  background-color: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, #17181a, #c89d6e);
+  border-radius: 4px;
+  transition: width 1s ease-in-out;
+}
+
+.deliveryInfo {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.deliveryTitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.deliveryDate {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}

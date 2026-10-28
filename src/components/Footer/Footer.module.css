@@ -1,0 +1,107 @@
+.footer {
+  padding: 32px 0 44px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+@media (max-width: 860px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+}
+
+/* Left Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoText {
+  font-family: var(--font-sans);
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.brandSubtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+  padding-left: 12px;
+}
+
+/* Middle Legal Links */
+.legalLinks {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.legalLink {
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+  border-bottom: 1px solid transparent;
+}
+
+.legalLink:hover {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+/* Right Socials & Copyright */
+.rightArea {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+@media (max-width: 860px) {
+  .rightArea {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.socialIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #f3f3f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+.socialIcon:hover {
+  background-color: #17181a;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.copyright {
+  font-size: 12px;
+  color: var(--text-muted);
+}

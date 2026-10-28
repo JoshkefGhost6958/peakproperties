@@ -1,17 +1,21 @@
 .section {
-  padding: 100px 0 110px 0;
-  background: radial-gradient(circle at 50% 0%, rgba(255, 216, 168, 0.07) 0%, rgba(14, 15, 18, 0) 70%), #0e0f12;
+  padding: 110px 0 120px 0;
+  background: rgba(14, 15, 18, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
+  z-index: 2;
   overflow: hidden;
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: 70px 0 80px 0;
+    padding: 75px 0 85px 0;
   }
 }
 
+/* Ambient Radial Glow */
 .ambientGlow {
   position: absolute;
   top: 10%;
@@ -24,15 +28,17 @@
   pointer-events: none;
 }
 
-/* Header & Eyebrow */
+/* -------------------------------------------------------------
+   Header & Ethos Statement
+   ------------------------------------------------------------- */
 .headerBlock {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   max-width: 920px;
-  margin-bottom: 48px;
+  margin-bottom: 52px;
   position: relative;
-  z-index: 1;
+  z-index: 5;
 }
 
 .ethosTag {
@@ -50,6 +56,7 @@
   color: #ffd8a8;
   margin-bottom: 22px;
   text-transform: uppercase;
+  backdrop-filter: blur(8px);
 }
 
 .tagDot {
@@ -80,19 +87,22 @@
 .subheading {
   font-size: clamp(16px, 1.5vw, 18.5px);
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   font-weight: 400;
   max-width: 760px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
-/* 3 Prominent Verification Pillars Grid */
+/* -------------------------------------------------------------
+   3 Verification Pillars Grid
+   ------------------------------------------------------------- */
 .pillarsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-bottom: 48px;
   position: relative;
-  z-index: 1;
+  z-index: 5;
 }
 
 @media (max-width: 900px) {
@@ -103,39 +113,72 @@
 }
 
 .pillarCard {
-  background: rgba(20, 22, 28, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(18, 20, 26, 0.76);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.11);
   border-radius: 20px;
   padding: 32px 28px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  transition: all var(--transition-fast);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  gap: 14px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   position: relative;
   overflow: hidden;
 }
 
 .pillarCard:hover {
-  background: rgba(26, 29, 38, 0.85);
-  border-color: rgba(255, 216, 168, 0.35);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  background: rgba(24, 27, 36, 0.88);
+  border-color: rgba(255, 216, 168, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 30px rgba(255, 216, 168, 0.1);
 }
 
+/* 3D Pedestal Icon Badge */
 .iconCircle {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: rgba(255, 216, 168, 0.12);
-  border: 1px solid rgba(255, 216, 168, 0.25);
-  color: #ffd8a8;
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 216, 168, 0.22) 0%,
+    rgba(24, 27, 34, 0.95) 55%,
+    rgba(212, 175, 55, 0.16) 100%
+  );
+  border: 1px solid rgba(255, 216, 168, 0.38);
+  box-shadow:
+    0 12px 28px -4px rgba(0, 0, 0, 0.75),
+    0 4px 14px rgba(255, 216, 168, 0.18),
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.5),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pillarCard:hover .iconCircle {
+  transform: translateY(-5px) scale(1.08) rotateX(8deg);
+  box-shadow:
+    0 18px 36px -4px rgba(0, 0, 0, 0.85),
+    0 6px 20px rgba(255, 216, 168, 0.35),
+    inset 0 2px 2px rgba(255, 255, 255, 0.7),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.8);
+  border-color: rgba(255, 216, 168, 0.65);
+}
+
+.iconSvg3d {
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.55));
+  transition: transform 0.3s ease;
+}
+
+.pillarCard:hover .iconSvg3d {
+  transform: scale(1.06);
 }
 
 .pillarBadge {
@@ -145,6 +188,20 @@
   color: #25d366;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+}
+
+.tourFeeBadge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffd8a8;
+  background: rgba(255, 216, 168, 0.12);
+  border: 1px solid rgba(255, 216, 168, 0.28);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  width: fit-content;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .pillarTitle {
@@ -157,10 +214,12 @@
 .pillarDesc {
   font-size: 14.5px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.75);
 }
 
-/* Bottom Action Strip */
+/* -------------------------------------------------------------
+   Bottom Action Strip
+   ------------------------------------------------------------- */
 .actionStrip {
   display: flex;
   align-items: center;
@@ -168,10 +227,13 @@
   gap: 24px;
   padding: 24px 32px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(20, 22, 28, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
-  z-index: 1;
+  z-index: 5;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
 @media (max-width: 860px) {
@@ -185,7 +247,7 @@
 .actionText {
   font-size: 16px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .actionButtons {

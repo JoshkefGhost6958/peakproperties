@@ -13,13 +13,16 @@ export default function AboutPage() {
 
       {/* Hero */}
       <section className={styles.pageHero}>
-        <div className="container">
-          <div className={styles.breadcrumb}>
-            <Link href="/">Home</Link>
-            <span>/</span>
-            <span>About Us</span>
-          </div>
+        <Image
+          src="/images/about_river.jpg"
+          alt="Peak Housing Architecture & Real Estate Nairobi"
+          fill
+          priority
+          className={styles.heroBgImage}
+        />
+        <div className={styles.heroOverlay} />
 
+        <div className={`container ${styles.heroContent}`}>
           <div className={styles.heroTag}>OUR ETHOS &amp; PROMISE</div>
           <h1 className={styles.title}>
             What You See <br />

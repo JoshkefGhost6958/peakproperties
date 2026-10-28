@@ -2,44 +2,64 @@
   min-height: 100vh;
   background-color: var(--bg-dark);
   color: #ffffff;
-  padding-top: 110px;
+  padding-top: 0;
 }
 
-/* Page Hero */
+/* Page Hero: Extends to the top behind the glass navbar and down behind the filters */
 .pageHero {
-  padding: 40px 0 32px 0;
+  position: relative;
+  overflow: hidden;
+  padding: 135px 0 64px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #0e0f12;
+  min-height: 560px;
 }
 
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--text-muted);
-  margin-bottom: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+.heroBgImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  opacity: 0.44;
+  z-index: 0;
+  pointer-events: none;
 }
 
-.breadcrumb a {
-  color: rgba(255, 255, 255, 0.6);
-  transition: color var(--transition-fast);
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 15, 18, 0.5) 0%,
+    rgba(14, 15, 18, 0.72) 40%,
+    rgba(14, 15, 18, 0.92) 85%,
+    #0e0f12 100%
+  ),
+  radial-gradient(
+    circle at 75% 25%,
+    rgba(255, 216, 168, 0.1) 0%,
+    transparent 65%
+  );
+  z-index: 1;
+  pointer-events: none;
 }
 
-.breadcrumb a:hover {
-  color: #ffffff;
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1320px;
 }
 
 .heroTag {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255, 216, 168, 0.1);
+  background: rgba(255, 216, 168, 0.12);
   color: #ffd8a8;
-  border: 1px solid rgba(255, 216, 168, 0.25);
-  padding: 5px 12px;
+  border: 1px solid rgba(255, 216, 168, 0.28);
+  padding: 5px 14px;
   border-radius: var(--radius-pill);
   font-size: 11px;
   font-weight: 700;
@@ -60,34 +80,43 @@
 
 .subtitle {
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.78);
   max-width: 680px;
   line-height: 1.55;
 }
 
-/* Filter Bar Section */
-.filterSection {
-  padding: 32px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background-color: #16171b;
+/* Glassmorphism Filter Card Inside Hero (Under continuous background image) */
+.filterCard {
+  margin-top: 36px;
+  background: rgba(18, 20, 26, 0.75);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
 }
 
-.filterGrid {
+.filterMainRow {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 16px;
   align-items: flex-end;
 }
 
-@media (max-width: 960px) {
-  .filterGrid {
-    grid-template-columns: 1fr 1fr;
+@media (max-width: 1080px) {
+  .filterMainRow {
+    grid-template-columns: 1.5fr 1fr 1fr;
   }
 }
 
-@media (max-width: 580px) {
-  .filterGrid {
+@media (max-width: 768px) {
+  .filterMainRow {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .filterCard {
+    padding: 18px;
   }
 }
 
@@ -98,18 +127,38 @@
 }
 
 .filterLabel {
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
-  letter-spacing: 0.04em;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.filterSelect, .filterInput {
+/* Real Search Input Box */
+.searchBoxWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
   width: 100%;
-  padding: 11px 14px;
-  background-color: #1f2127;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 14px;
+  color: #ffd8a8;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 12px 38px 12px 42px;
+  background-color: #17181e;
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 12px;
   color: #ffffff;
   font-size: 13.5px;
@@ -117,10 +166,53 @@
   transition: all var(--transition-fast);
 }
 
-.filterSelect:focus, .filterInput:focus {
-  border-color: #ffffff;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
+.searchInput:focus {
+  border-color: #ffd8a8;
+  box-shadow: 0 0 0 3px rgba(255, 216, 168, 0.16);
+  background-color: #1c1e24;
 }
+
+.clearSearchBtn {
+  position: absolute;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clearSearchBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.filterSelect, .filterInput {
+  width: 100%;
+  padding: 12px 14px;
+  background-color: #17181e;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 13.5px;
+  outline: none;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.filterSelect:focus, .filterInput:focus {
+  border-color: #ffd8a8;
+  box-shadow: 0 0 0 3px rgba(255, 216, 168, 0.16);
+  background-color: #1c1e24;
+}
+
 
 /* Quick Location Pills */
 .locationPills {

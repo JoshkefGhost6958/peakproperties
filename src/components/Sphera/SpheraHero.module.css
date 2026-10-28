@@ -320,9 +320,15 @@
   border-radius: var(--radius-pill);
   cursor: pointer;
   pointer-events: auto;
-  transition: all var(--transition-fast);
+  transition: opacity 0.35s ease, transform 0.35s ease, background 0.2s ease, border-color 0.2s ease;
   z-index: 10;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.scrollHidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateX(-50%) translateY(14px) !important;
 }
 
 .scrollText {

@@ -144,6 +144,7 @@ export default function AdminViewingsPage() {
                 <th>Property Interest</th>
                 <th>Preferred Schedule</th>
                 <th>Client Notes</th>
+                <th>Designated Staff</th>
                 <th>Current Status</th>
                 <th>Actions</th>
               </tr>
@@ -151,7 +152,7 @@ export default function AdminViewingsPage() {
             <tbody>
               {filteredViewings.length === 0 ? (
                 <tr>
-                  <td colSpan="7" className={styles.emptyTableState}>
+                  <td colSpan="8" className={styles.emptyTableState}>
                     No viewing bookings matching this filter.
                   </td>
                 </tr>
@@ -192,6 +193,41 @@ export default function AdminViewingsPage() {
                         </div>
                       </td>
                       <td>
+                        <select
+                          value={viewing.assignedTo || viewing.assignedPersonnel || ""}
+                          onChange={async (e) => {
+                            const newStaff = e.target.value;
+                            await fetch("/api/viewings", {
+                              method: "PATCH",
+                              headers: { "Content-Type": "application/json" },
+                              body: JSON.stringify({
+                                id: viewing.id,
+                                assignedTo: newStaff,
+                                assignedPersonnel: newStaff,
+                              }),
+                            });
+                            showToast(`Designated viewing to ${newStaff || "Unassigned"}`);
+                            fetchContent();
+                          }}
+                          className={styles.fieldSelect}
+                          style={{
+                            padding: "6px 8px",
+                            fontSize: "12px",
+                            width: "auto",
+                            background: viewing.assignedTo ? "rgba(255,216,168,0.12)" : undefined,
+                            borderColor: viewing.assignedTo ? "rgba(255,216,168,0.3)" : undefined,
+                            color: viewing.assignedTo ? "#ffd8a8" : undefined,
+                          }}
+                        >
+                          <option value="">-- Designate Staff --</option>
+                          {(siteData.personnel || []).map((p) => (
+                            <option key={p.id} value={p.name}>
+                              {p.name} ({p.role.split(" ")[0]})
+                            </option>
+                          ))}
+                        </select>
+                      </td>
+                      <td>
                         <span className={`${styles.statusBadge} ${getStatusBadgeClass(viewing.status)}`}>
                           {viewing.status}
                         </span>
@@ -221,19 +257,21 @@ export default function AdminViewingsPage() {
                           </a>
 
                           {/* Quick Status Changers */}
-                          <div style={{ display: "flex", gap: "4px" }}>
+                          <div style={{ display: "flex", gap: "6px" }}>
                             {viewing.status !== "Confirmed" && (
                               <button
                                 type="button"
                                 onClick={() => handleUpdateStatus(viewing.id, "Confirmed")}
                                 style={{
-                                  padding: "4px 8px",
+                                  padding: "5px 10px",
                                   fontSize: "11px",
+                                  fontWeight: "700",
                                   borderRadius: "6px",
-                                  background: "rgba(37, 211, 102, 0.15)",
-                                  color: "#86efac",
-                                  border: "1px solid rgba(37, 211, 102, 0.3)",
+                                  background: "#16a34a",
+                                  color: "#ffffff",
+                                  border: "1px solid #22c55e",
                                   cursor: "pointer",
+                                  boxShadow: "0 2px 6px rgba(22, 163, 74, 0.3)",
                                 }}
                               >
                                 Confirm
@@ -245,12 +283,13 @@ export default function AdminViewingsPage() {
                                 type="button"
                                 onClick={() => handleUpdateStatus(viewing.id, "Completed")}
                                 style={{
-                                  padding: "4px 8px",
+                                  padding: "5px 10px",
                                   fontSize: "11px",
+                                  fontWeight: "700",
                                   borderRadius: "6px",
-                                  background: "rgba(255, 255, 255, 0.08)",
+                                  background: "#2a2e3b",
                                   color: "#ffffff",
-                                  border: "1px solid rgba(255, 255, 255, 0.15)",
+                                  border: "1px solid #3d4356",
                                   cursor: "pointer",
                                 }}
                               >

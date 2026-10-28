@@ -76,6 +76,8 @@ export default function BnBsPage() {
   const [bnbs, setBnbs] = useState(BNBS_DATA);
   const [selectedLocation, setSelectedLocation] = useState("Westlands & Lavington");
   const [typeFilter, setTypeFilter] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortOrder, setSortOrder] = useState("default");
   const [selectedBnb, setSelectedBnb] = useState(null);
 
   // Load live BnBs from CMS API
@@ -97,19 +99,43 @@ export default function BnBsPage() {
     fetchBnBs();
   }, []);
 
-  const filteredBnBs = bnbs.filter((bnb) => {
-    const matchLocation =
-      selectedLocation === "All"
-        ? true
-        : selectedLocation === "Westlands & Lavington"
-        ? bnb.location === "Westlands" || bnb.location === "Lavington"
-        : bnb.location.toLowerCase() === selectedLocation.toLowerCase();
+  const filteredBnBs = bnbs
+    .filter((bnb) => {
+      const matchSearch =
+        searchQuery.trim() === ""
+          ? true
+          : (bnb.title || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (bnb.location || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (bnb.neighborhood || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (bnb.description || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (bnb.area || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (bnb.features || []).some((f) => f.toLowerCase().includes(searchQuery.toLowerCase()));
 
-    const matchType =
-      typeFilter === "all" ? true : bnb.type === typeFilter;
+      const matchLocation =
+        selectedLocation === "All"
+          ? true
+          : selectedLocation === "Westlands & Lavington"
+          ? bnb.location === "Westlands" || bnb.location === "Lavington"
+          : bnb.location.toLowerCase() === selectedLocation.toLowerCase();
 
-    return matchLocation && matchType;
-  });
+      const matchType =
+        typeFilter === "all" ? true : bnb.type === typeFilter;
+
+      return matchSearch && matchLocation && matchType;
+    })
+    .sort((a, b) => {
+      if (sortOrder === "price-asc") {
+        const pA = parseInt((a.price || "").replace(/[^0-9]/g, "")) || 0;
+        const pB = parseInt((b.price || "").replace(/[^0-9]/g, "")) || 0;
+        return pA - pB;
+      }
+      if (sortOrder === "price-desc") {
+        const pA = parseInt((a.price || "").replace(/[^0-9]/g, "")) || 0;
+        const pB = parseInt((b.price || "").replace(/[^0-9]/g, "")) || 0;
+        return pB - pA;
+      }
+      return 0;
+    });
 
   const getWhatsAppBookingLink = (bnb) => {
     const text = `Hello Joseph Simiyu Kefa, I would like to reserve / inquire about booking dates for the verified BnB: ${bnb.title} (${bnb.price}).`;
@@ -120,15 +146,18 @@ export default function BnBsPage() {
     <main className={styles.pageWrapper}>
       <SpheraHeader />
 
-      {/* Hero Header */}
+      {/* Hero Header with seamless image extending through navbar & filters */}
       <section className={styles.pageHero}>
-        <div className="container">
-          <div className={styles.breadcrumb}>
-            <Link href="/">Home</Link>
-            <span>/</span>
-            <span>BnBs &amp; Short Stays</span>
-          </div>
+        <Image
+          src="/images/peak-bnb.jpg"
+          alt="Luxury BnBs and Short Stays Nairobi"
+          fill
+          priority
+          className={styles.heroBgImage}
+        />
+        <div className={styles.heroOverlay} />
 
+        <div className={`container ${styles.heroContent}`}>
           <div className={styles.heroTag}>VERIFIED BOUTIQUE BNBS</div>
           <h1 className={styles.title}>Luxury BnBs &amp; Short Stays</h1>
           <p className={styles.subtitle}>
@@ -137,117 +166,146 @@ export default function BnBsPage() {
             What you see is what you get — identical to photos, ultra-clean, and
             professionally managed.
           </p>
-        </div>
-      </section>
 
-      {/* Filter Section */}
-      <section className={styles.filterSection}>
-        <div className="container">
-          <div className={styles.filterGrid}>
-            <div className={styles.filterGroup}>
-              <label className={styles.filterLabel}>Location</label>
-              <select
-                value={selectedLocation}
-                onChange={(e) => setSelectedLocation(e.target.value)}
-                className={styles.filterSelect}
-              >
-                <option value="Westlands & Lavington">
-                  Westlands &amp; Lavington (Default Prime)
-                </option>
-                <option value="Westlands">Westlands</option>
-                <option value="Lavington">Lavington</option>
-                <option value="All">All Locations</option>
-              </select>
-            </div>
+          {/* Unified Glassmorphism Filter & Search Card */}
+          <div className={styles.filterCard}>
+            <div className={styles.filterMainRow}>
+              {/* Actual Search Filter */}
+              <div className={styles.filterGroup}>
+                <label className={styles.filterLabel}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  </svg>
+                  <span>Search Location &amp; Keywords</span>
+                </label>
+                <div className={styles.searchBoxWrapper}>
+                  <div className={styles.searchIcon}>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <circle cx="11" cy="11" r="8" />
+                      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                  </div>
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search by neighborhood, street, or format..."
+                    className={styles.searchInput}
+                  />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchQuery("")}
+                      className={styles.clearSearchBtn}
+                      title="Clear search"
+                    >
+                      ✕
+                    </button>
+                  )}
+                </div>
+              </div>
 
-            <div className={styles.filterGroup}>
-              <label className={styles.filterLabel}>Stay Format</label>
-              <select
-                value={typeFilter}
-                onChange={(e) => setTypeFilter(e.target.value)}
-                className={styles.filterSelect}
-              >
-                <option value="all">Any Format</option>
-                <option value="suite">Glass Sanctuary Suite</option>
-                <option value="studio">Executive Studio Loft</option>
-                <option value="residence">2-Bedroom Residence</option>
-                <option value="cottage">Garden Cottage</option>
-              </select>
-            </div>
+              {/* Location Dropdown */}
+              <div className={styles.filterGroup}>
+                <label className={styles.filterLabel}>Prime Neighborhood</label>
+                <select
+                  value={selectedLocation}
+                  onChange={(e) => setSelectedLocation(e.target.value)}
+                  className={styles.filterSelect}
+                >
+                  <option value="Westlands & Lavington">
+                    Westlands &amp; Lavington (Featured)
+                  </option>
+                  <option value="Westlands">Westlands Only</option>
+                  <option value="Lavington">Lavington Only</option>
+                  <option value="All">All Locations</option>
+                </select>
+              </div>
 
-            <div className={styles.filterGroup}>
-              <label className={styles.filterLabel}>Host Representative</label>
-              <div
-                style={{
-                  padding: "11px 14px",
-                  backgroundColor: "#1f2127",
-                  borderRadius: "12px",
-                  fontSize: "13px",
-                  color: "#ffd8a8",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                }}
-              >
-                Joseph S. Kefa (0722705898)
+              {/* Stay Format Filter */}
+              <div className={styles.filterGroup}>
+                <label className={styles.filterLabel}>Stay Format</label>
+                <select
+                  value={typeFilter}
+                  onChange={(e) => setTypeFilter(e.target.value)}
+                  className={styles.filterSelect}
+                >
+                  <option value="all">Any Format</option>
+                  <option value="suite">Glass Sanctuary Suite</option>
+                  <option value="studio">Executive Studio Loft</option>
+                  <option value="residence">2-Bedroom Residence</option>
+                  <option value="cottage">Garden Cottage</option>
+                </select>
+              </div>
+
+              {/* Sort Order */}
+              <div className={styles.filterGroup}>
+                <label className={styles.filterLabel}>Sort By Rate</label>
+                <select
+                  value={sortOrder}
+                  onChange={(e) => setSortOrder(e.target.value)}
+                  className={styles.filterSelect}
+                >
+                  <option value="default">Featured Selection</option>
+                  <option value="price-asc">Nightly Rate: Low to High</option>
+                  <option value="price-desc">Nightly Rate: High to Low</option>
+                </select>
               </div>
             </div>
 
-            <div className={styles.filterGroup}>
-              <label className={styles.filterLabel}>Hospitality Standard</label>
-              <div
-                style={{
-                  padding: "11px 14px",
-                  backgroundColor: "#1f2127",
-                  borderRadius: "12px",
-                  fontSize: "13px",
-                  color: "#25d366",
-                  fontWeight: "600",
-                  border: "1px solid rgba(37,211,102,0.2)",
+            {/* Quick Location Pills */}
+            <div className={styles.locationPills}>
+              <span style={{ fontSize: "12px", color: "var(--text-muted)" }}>Quick Selection:</span>
+              <button
+                type="button"
+                className={`${styles.locationPill} ${
+                  selectedLocation === "Westlands & Lavington" && !searchQuery ? styles.locationPillActive : ""
+                }`}
+                onClick={() => {
+                  setSelectedLocation("Westlands & Lavington");
+                  setSearchQuery("");
                 }}
               >
-                100% Reality Verified
-              </div>
+                Westlands &amp; Lavington (Featured)
+              </button>
+              <button
+                type="button"
+                className={`${styles.locationPill} ${
+                  selectedLocation === "Westlands" ? styles.locationPillActive : ""
+                }`}
+                onClick={() => {
+                  setSelectedLocation("Westlands");
+                  setSearchQuery("");
+                }}
+              >
+                Westlands
+              </button>
+              <button
+                type="button"
+                className={`${styles.locationPill} ${
+                  selectedLocation === "Lavington" ? styles.locationPillActive : ""
+                }`}
+                onClick={() => {
+                  setSelectedLocation("Lavington");
+                  setSearchQuery("");
+                }}
+              >
+                Lavington
+              </button>
+              <button
+                type="button"
+                className={`${styles.locationPill} ${
+                  selectedLocation === "All" && !searchQuery ? styles.locationPillActive : ""
+                }`}
+                onClick={() => {
+                  setSelectedLocation("All");
+                  setSearchQuery("");
+                }}
+              >
+                Show All
+              </button>
             </div>
-          </div>
-
-          {/* Quick Location Pills */}
-          <div className={styles.locationPills}>
-            <span style={{ fontSize: "12px", color: "var(--text-muted)" }}>Quick Selection:</span>
-            <button
-              type="button"
-              className={`${styles.locationPill} ${
-                selectedLocation === "Westlands & Lavington" ? styles.locationPillActive : ""
-              }`}
-              onClick={() => setSelectedLocation("Westlands & Lavington")}
-            >
-              Westlands &amp; Lavington (Featured)
-            </button>
-            <button
-              type="button"
-              className={`${styles.locationPill} ${
-                selectedLocation === "Westlands" ? styles.locationPillActive : ""
-              }`}
-              onClick={() => setSelectedLocation("Westlands")}
-            >
-              Westlands
-            </button>
-            <button
-              type="button"
-              className={`${styles.locationPill} ${
-                selectedLocation === "Lavington" ? styles.locationPillActive : ""
-              }`}
-              onClick={() => setSelectedLocation("Lavington")}
-            >
-              Lavington
-            </button>
-            <button
-              type="button"
-              className={`${styles.locationPill} ${
-                selectedLocation === "All" ? styles.locationPillActive : ""
-              }`}
-              onClick={() => setSelectedLocation("All")}
-            >
-              Show All
-            </button>
           </div>
         </div>
       </section>
@@ -313,6 +371,13 @@ export default function BnBsPage() {
                       rel="noopener noreferrer"
                       className={styles.whatsappBtn}
                     >
+                      <Image
+                        src="/images/coordinator.jpeg"
+                        alt="Joseph Simiyu Kefa"
+                        width={18}
+                        height={18}
+                        style={{ borderRadius: "50%", objectFit: "cover", border: "1px solid #ffd8a8" }}
+                      />
                       <span>Book on WhatsApp</span>
                     </a>
                   </div>

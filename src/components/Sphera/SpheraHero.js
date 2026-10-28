@@ -67,8 +67,19 @@ export default function SpheraHero({ onSelectProject, onOpenSiteViewing }) {
   const [slides, setSlides] = useState(HERO_SLIDES);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const slideTimerRef = useRef(null);
   const videoRef = useRef(null);
+
+  // Auto-hide scroll indicator when user scrolls down
+  useEffect(() => {
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > 40);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Background video plays strictly muted by default (ensures universal autoplay across all devices)
   useEffect(() => {
@@ -237,10 +248,12 @@ export default function SpheraHero({ onSelectProject, onOpenSiteViewing }) {
         </div>
       </div>
 
-      {/* Redesigned Floating Scroll Down Indicator */}
+      {/* Redesigned Floating Scroll Down Indicator (Auto-hides on scroll) */}
       <button
         type="button"
-        className={styles.scrollIndicator}
+        className={`${styles.scrollIndicator} ${
+          hasScrolled ? styles.scrollHidden : ""
+        }`}
         onClick={scrollToExplore}
         aria-label="Scroll to explore properties"
       >

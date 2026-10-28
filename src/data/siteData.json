@@ -534,5 +534,72 @@
         }
       ]
     }
+  ],
+  "personnel": [
+    {
+      "id": "pers-jsk",
+      "name": "Joseph Simiyu Kefa",
+      "role": "Client Director & Super Admin",
+      "title": "Lead VIP Viewing Host & Managing Director",
+      "phone": "+254 722 705898",
+      "email": "director@peakhousing.co.ke",
+      "status": "Available",
+      "avatar": "JSK",
+      "image": "/images/coordinator.jpeg",
+      "assignedViewingsCount": 2,
+      "specialties": [
+        "Ultra-Luxury Karen & Lavington Villas",
+        "VIP Client Attending & Negotiations",
+        "Deed Escrow Closing"
+      ]
+    },
+    {
+      "id": "pers-pk",
+      "name": "Eng. Patrick Kamau",
+      "role": "Lead Structural Engineer & Technical Inspector",
+      "title": "Technical Site & Construction Viewing Lead",
+      "phone": "+254 711 349812",
+      "email": "kamau.eng@peakhousing.co.ke",
+      "status": "Available",
+      "avatar": "PK",
+      "assignedViewingsCount": 1,
+      "specialties": [
+        "Structural & Mechanical Audits",
+        "Isometric Blueprint Reviews",
+        "Turnkey Construction Inspections"
+      ]
+    },
+    {
+      "id": "pers-sm",
+      "name": "Sarah Mwangi",
+      "role": "Senior Client Concierge",
+      "title": "Executive Apartments & BnB Viewing Host",
+      "phone": "+254 733 892014",
+      "email": "sarah.m@peakhousing.co.ke",
+      "status": "Available",
+      "avatar": "SM",
+      "assignedViewingsCount": 2,
+      "specialties": [
+        "Westlands Duplex Penthouses",
+        "Short-Stay BnB Walkthroughs",
+        "Client Itinerary Scheduling"
+      ]
+    },
+    {
+      "id": "pers-dk",
+      "name": "David Kipchumba",
+      "role": "Registered Land Surveyor",
+      "title": "Prime Land Parcels & Beacon Audit Representative",
+      "phone": "+254 728 551930",
+      "email": "david.k@peakhousing.co.ke",
+      "status": "Available",
+      "avatar": "DK",
+      "assignedViewingsCount": 1,
+      "specialties": [
+        "Ministry of Lands Registry Searches",
+        "Boundary & Beacon Verification",
+        "Cadastral Map Confirmation"
+      ]
+    }
   ]
 }

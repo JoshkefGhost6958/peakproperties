@@ -1,8 +1,11 @@
 .section {
   padding: 100px 0 110px 0;
-  background: linear-gradient(180deg, #121316 0%, #0e0f12 100%);
+  background: linear-gradient(180deg, rgba(18, 19, 22, 0.9) 0%, rgba(14, 15, 18, 0.95) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
+  z-index: 5;
   overflow: hidden;
 }
 
@@ -67,15 +70,38 @@
   line-height: 1.15;
 }
 
+.personHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.personAvatar {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #ffd8a8;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+
+.personAvatarImg {
+  object-fit: cover;
+  object-position: center 10%;
+}
+
 .personName {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
   color: #ffffff;
-  margin-top: 4px;
 }
 
 .personRole {
-  font-size: 14px;
+  font-size: 13.5px;
   color: #25d366;
   font-weight: 600;
   letter-spacing: 0.04em;

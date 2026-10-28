@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import SpheraHeader from "@/components/Sphera/SpheraHeader";
 import SpheraFooter from "@/components/Sphera/SpheraFooter";
@@ -55,13 +56,16 @@ export default function ContactPage() {
 
       {/* Hero Header */}
       <section className={styles.pageHero}>
-        <div className="container">
-          <div className={styles.breadcrumb}>
-            <Link href="/">Home</Link>
-            <span>/</span>
-            <span>Contact Us</span>
-          </div>
+        <Image
+          src="/images/courtyard.jpg"
+          alt="Peak Housing Direct Client Advisory"
+          fill
+          priority
+          className={styles.heroBgImage}
+        />
+        <div className={styles.heroOverlay} />
 
+        <div className={`container ${styles.heroContent}`}>
           <div className={styles.heroTag}>DIRECT CLIENT ADVISORY</div>
           <h1 className={styles.title}>
             Get In Touch With <br />
@@ -83,10 +87,18 @@ export default function ContactPage() {
             {/* Representative Card (NO Office Address) */}
             <div className={styles.directRepCard}>
               <div className={styles.repHeader}>
-                <div className={styles.repAvatar}>JSK</div>
+                <div className={styles.repAvatar}>
+                  <Image
+                    src="/images/coordinator.jpeg"
+                    alt="Joseph Simiyu Kefa"
+                    fill
+                    sizes="68px"
+                    className={styles.repAvatarImg}
+                  />
+                </div>
                 <div>
                   <h2 className={styles.repName}>Joseph Simiyu Kefa</h2>
-                  <div className={styles.repTitle}>Direct Client Representative</div>
+                  <div className={styles.repTitle}>Direct Client Representative &amp; Coordinator</div>
                 </div>
               </div>
 

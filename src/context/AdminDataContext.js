@@ -21,6 +21,7 @@ export function AdminDataProvider({ children }) {
     heroSlides: [],
     viewings: [],
     tickets: [],
+    personnel: [],
   });
 
   const [loading, setLoading] = useState(true);

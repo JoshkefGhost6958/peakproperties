@@ -85,6 +85,7 @@ export default function AdminShell({ children }) {
     if (pathname.startsWith("/admin/contractors")) return "Contractors, Engineers & Incentives";
     if (pathname.startsWith("/admin/viewings")) return "Site Viewing Inquiries";
     if (pathname.startsWith("/admin/tickets")) return "Client Inquiry Tickets";
+    if (pathname.startsWith("/admin/personnel")) return "Personnel & Viewing Delegations";
     if (pathname.startsWith("/admin/site-management")) return "Homepage & Hero Showcase";
     return "Admin Control Center";
   };
@@ -102,41 +103,57 @@ export default function AdminShell({ children }) {
       <aside className={`${styles.sidebar} ${sidebarOpen ? styles.sidebarOpen : ""} ${isCollapsed ? styles.sidebarCollapsed : ""}`}>
         {/* Brand Header & Collapse Toggle */}
         <div className={styles.sidebarHeader}>
-          <Link href="/admin" className={styles.brandLink} title="Peak Housing Control Center">
-            <Image
-              src="/images/peak-housing-logo.jpg"
-              alt="Peak Housing Logo"
-              width={38}
-              height={38}
-              className={styles.brandLogoImg}
-            />
-            <div className={styles.brandTextGroup}>
-              <span className={styles.brandTitle}>PEAK HOUSING</span>
-              <span className={styles.brandSubtitle}>Admin Control Center</span>
-            </div>
-          </Link>
-          <button
-            type="button"
-            className={styles.collapseToggleBtn}
-            onClick={toggleCollapse}
-            title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-            aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-          >
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              style={{
-                transform: isCollapsed ? "rotate(180deg)" : "rotate(0deg)",
-                transition: "transform 0.25s ease",
-              }}
+          {isCollapsed ? (
+            <button
+              type="button"
+              className={styles.collapsedLogoBtn}
+              onClick={toggleCollapse}
+              title="Click to expand sidebar"
+              aria-label="Click to expand sidebar"
             >
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
+              <Image
+                src="/images/peak-housing-logo.jpg"
+                alt="Peak Housing Logo"
+                width={40}
+                height={40}
+                className={styles.brandLogoImg}
+              />
+            </button>
+          ) : (
+            <>
+              <Link href="/admin" className={styles.brandLink} title="Peak Housing Control Center">
+                <Image
+                  src="/images/peak-housing-logo.jpg"
+                  alt="Peak Housing Logo"
+                  width={38}
+                  height={38}
+                  className={styles.brandLogoImg}
+                />
+                <div className={styles.brandTextGroup}>
+                  <span className={styles.brandTitle}>PEAK HOUSING</span>
+                  <span className={styles.brandSubtitle}>Admin Control Center</span>
+                </div>
+              </Link>
+              <button
+                type="button"
+                className={styles.collapseToggleBtn}
+                onClick={toggleCollapse}
+                title="Collapse sidebar"
+                aria-label="Collapse sidebar"
+              >
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                >
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+            </>
+          )}
         </div>
 
         {/* Navigation Groups */}
@@ -342,6 +359,29 @@ export default function AdminShell({ children }) {
                 </span>
               )}
             </Link>
+
+            {/* Personnel & Attendants */}
+            <Link
+              href="/admin/personnel"
+              className={`${styles.navItem} ${isActive("/admin/personnel") ? styles.navItemActive : ""}`}
+              onClick={() => setSidebarOpen(false)}
+              title="Manage Personnel & Designate Viewing Visits"
+            >
+              <div className={styles.navItemLeft}>
+                <span className={styles.navIcon}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                </span>
+                <span className={styles.navItemText}>Personnel &amp; Staff</span>
+              </div>
+              <span className={`${styles.countBadge} ${isActive("/admin/personnel") ? styles.countBadgeActive : ""}`}>
+                {siteData.personnel?.length || 4}
+              </span>
+            </Link>
           </div>
 
           {/* Group 4: Site Management & Hero Houses */}
@@ -362,10 +402,10 @@ export default function AdminShell({ children }) {
                     <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
                   </svg>
                 </span>
-                <span className={styles.navItemText}>Homepage &amp; Hero Showcase</span>
+                <span className={styles.navItemText}>Hero &amp; Showcase</span>
               </div>
               <span className={`${styles.countBadge} ${isActive("/admin/site-management") ? styles.countBadgeActive : ""}`}>
-                Hero Slides
+                Slides
               </span>
             </Link>
           </div>
@@ -374,7 +414,15 @@ export default function AdminShell({ children }) {
         {/* Sidebar Footer Profile */}
         <div className={styles.sidebarFooter}>
           <div className={styles.profileCard}>
-            <div className={styles.profileAvatar}>JSK</div>
+            <div className={styles.profileAvatar}>
+              <Image
+                src="/images/coordinator.jpeg"
+                alt="Joseph Simiyu Kefa"
+                fill
+                sizes="36px"
+                style={{ objectFit: "cover", objectPosition: "center 10%" }}
+              />
+            </div>
             <div className={styles.profileInfo}>
               <span className={styles.profileName}>
                 {adminUser?.name || "Joseph Simiyu Kefa"}
@@ -423,22 +471,6 @@ export default function AdminShell({ children }) {
           </div>
 
           <div className={styles.topbarRight}>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <span
-                style={{
-                  width: "8px",
-                  height: "8px",
-                  borderRadius: "50%",
-                  backgroundColor: "#25d366",
-                  display: "inline-block",
-                  boxShadow: "0 0 8px #25d366",
-                }}
-              />
-              <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.6)", fontWeight: 600 }}>
-                Live System
-              </span>
-            </div>
-
             {/* Quick Hero Slides CTA in Navbar */}
             <Link
               href="/admin/site-management"
@@ -454,17 +486,8 @@ export default function AdminShell({ children }) {
             <Link
               href="/"
               target="_blank"
-              style={{
-                fontSize: "12px",
-                fontWeight: 700,
-                color: "#ffd8a8",
-                textDecoration: "none",
-                background: "rgba(255,216,168,0.1)",
-                border: "1px solid rgba(255,216,168,0.25)",
-                padding: "6px 14px",
-                borderRadius: "var(--radius-pill)",
-                transition: "all var(--transition-fast)",
-              }}
+              className={styles.publicSiteTopbarBtn}
+              title="Open Public Website in new tab"
             >
               View Public Website ↗
             </Link>

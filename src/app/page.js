@@ -14,6 +14,7 @@ import CustomHouseModal from "@/components/Sphera/CustomHouseModal";
 import PriceDownloadModal from "@/components/Sphera/PriceDownloadModal";
 import LegalModal from "@/components/Modals/LegalModal";
 import ScrollProgress from "@/components/Effects/ScrollProgress";
+import LandingPageHouseBackground from "@/components/Sphera/LandingPageHouseBackground";
 
 export default function Home() {
   const [downloadModalOpen, setDownloadModalOpen] = useState(false);
@@ -41,7 +42,10 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <main style={{ position: "relative", minHeight: "100vh", backgroundColor: "#0e0f12" }}>
+      {/* Persistent Landing Page Background: 3D Rotating Architectural House */}
+      <LandingPageHouseBackground />
+
       {/* Top Scroll Reading Progress & Back-to-Top Glass Button */}
       <ScrollProgress />
 

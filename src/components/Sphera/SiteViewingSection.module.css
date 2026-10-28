@@ -1,9 +1,12 @@
 .section {
   padding: 90px 0 100px 0;
-  background-color: #15161a;
+  background-color: rgba(18, 20, 26, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
+  z-index: 2;
   overflow: hidden;
 }
 

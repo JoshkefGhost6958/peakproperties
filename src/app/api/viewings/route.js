@@ -59,7 +59,7 @@ export async function POST(request) {
 
 export async function PATCH(request) {
   try {
-    const { id, status } = await request.json();
+    const { id, status, assignedTo, assignedPersonnel } = await request.json();
     const currentData = readSiteData();
 
     if (!currentData.viewings) {
@@ -71,7 +71,16 @@ export async function PATCH(request) {
       return NextResponse.json({ success: false, error: "Viewing not found" }, { status: 404 });
     }
 
-    currentData.viewings[index].status = status;
+    if (status !== undefined) {
+      currentData.viewings[index].status = status;
+    }
+    if (assignedTo !== undefined) {
+      currentData.viewings[index].assignedTo = assignedTo;
+    }
+    if (assignedPersonnel !== undefined) {
+      currentData.viewings[index].assignedPersonnel = assignedPersonnel;
+    }
+
     writeSiteData(currentData);
 
     return NextResponse.json({ success: true, viewing: currentData.viewings[index] });

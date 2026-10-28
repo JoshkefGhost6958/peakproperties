@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SpheraHeader from "@/components/Sphera/SpheraHeader";
 import SpheraFooter from "@/components/Sphera/SpheraFooter";
+import ArchitecturalHouseDepth from "@/components/Sphera/ArchitecturalHouseDepth";
 import styles from "./construction.module.css";
 
 const COMPLETED_PROJECTS = [
@@ -115,15 +116,16 @@ Details: ${formData.notes || "None provided"}`;
     <main className={styles.pageWrapper}>
       <SpheraHeader />
 
-      {/* Hero Header */}
+      {/* Hero Header with nuanced architectural hero background */}
       <section className={styles.pageHero}>
-        <div className="container">
-          <div className={styles.breadcrumb}>
-            <Link href="/">Home</Link>
-            <span>/</span>
-            <span>Construction</span>
-          </div>
+        {/* Nuanced Architectural House Hero Background with 3D Scroll Depth */}
+        <ArchitecturalHouseDepth
+          imageSrc="/images/sphera-iso-dark.jpg"
+          alt="Luxury Residential Construction & Architectural Design Blueprint"
+          opacity={0.38}
+        />
 
+        <div className={`container ${styles.heroContent}`}>
           <div className={styles.heroTag}>VERIFIED CONTRACTORS &amp; ARCHITECTS</div>
           <h1 className={styles.title}>
             Let&apos;s Build You Your <br />
@@ -151,9 +153,13 @@ Details: ${formData.notes || "None provided"}`;
               rel="noopener noreferrer"
               className={styles.secondaryBtn}
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5.2-1.31C8.61 21.53 10.26 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.46 14.38c-.23.64-1.16 1.2-1.61 1.25-.43.05-.98.07-2.83-.69-2.37-.97-3.9-3.39-4.02-3.55-.12-.16-.96-1.28-.96-2.44 0-1.16.61-1.73.83-1.96.22-.23.48-.29.64-.29.16 0 .32 0 .46.01.15.01.35-.06.55.42.2.49.69 1.68.75 1.8.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.25.31-.36.42-.12.12-.25.25-.11.49.14.24.62 1.02 1.33 1.65.91.81 1.68 1.06 1.92 1.18.24.12.38.1.52-.06.14-.16.61-.71.77-.95.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.58-.17 1.22z"/>
-              </svg>
+              <Image
+                src="/images/coordinator.jpeg"
+                alt="Joseph Simiyu Kefa"
+                width={20}
+                height={20}
+                style={{ borderRadius: "50%", objectFit: "cover", border: "1.5px solid #ffd8a8" }}
+              />
               <span>Consult Joseph (0722705898)</span>
             </a>
           </div>
@@ -251,15 +257,26 @@ Details: ${formData.notes || "None provided"}`;
                 </div>
               </div>
 
-              <div style={{ padding: "16px", background: "rgba(255,255,255,0.04)", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <span style={{ fontSize: "12px", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                  Direct Project Lead
-                </span>
-                <div style={{ fontSize: "16px", fontWeight: "700", marginTop: "4px" }}>
-                  Joseph Simiyu Kefa
+              <div className={styles.leadBoxCompact}>
+                <div className={styles.leadAvatarSmall}>
+                  <Image
+                    src="/images/coordinator.jpeg"
+                    alt="Joseph Simiyu Kefa"
+                    fill
+                    sizes="54px"
+                    className={styles.leadAvatarSmallImg}
+                  />
                 </div>
-                <div style={{ fontSize: "14px", color: "#ffd8a8", marginTop: "2px" }}>
-                  Call / WhatsApp: 0722705898
+                <div>
+                  <span style={{ fontSize: "11px", color: "#ffd8a8", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: "700" }}>
+                    Direct Construction Coordinator
+                  </span>
+                  <div style={{ fontSize: "16px", fontWeight: "700", marginTop: "2px", color: "#ffffff" }}>
+                    Joseph Simiyu Kefa
+                  </div>
+                  <div style={{ fontSize: "13.5px", color: "rgba(255,255,255,0.7)", marginTop: "2px" }}>
+                    Direct Call / WhatsApp: <a href="https://wa.me/254722705898" target="_blank" rel="noopener noreferrer" style={{ color: "#ffd8a8", textDecoration: "underline" }}>0722705898</a>
+                  </div>
                 </div>
               </div>
             </div>

@@ -114,8 +114,10 @@ const LAND_DATA = [
 
 export default function LandPage() {
   const [landPlots, setLandPlots] = useState(LAND_DATA);
-  const [selectedLocation, setSelectedLocation] = useState("Westlands & Lavington");
+  const [selectedLocation, setSelectedLocation] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
   const [sizeFilter, setSizeFilter] = useState("all");
+  const [sortOrder, setSortOrder] = useState("default");
   const [selectedLand, setSelectedLand] = useState(null);
 
   // Load live land from CMS API
@@ -137,27 +139,40 @@ export default function LandPage() {
     fetchLand();
   }, []);
 
-  const filteredLand = landPlots.filter((plot) => {
-    const matchLocation =
-      selectedLocation === "All"
-        ? true
-        : selectedLocation === "Westlands & Lavington"
-        ? plot.location === "Westlands" || plot.location === "Lavington"
-        : plot.location.toLowerCase() === selectedLocation.toLowerCase();
+  const filteredLand = landPlots
+    .filter((plot) => {
+      const matchLocation =
+        selectedLocation === "All"
+          ? true
+          : selectedLocation === "Westlands & Lavington"
+          ? plot.location === "Westlands" || plot.location === "Lavington"
+          : plot.location.toLowerCase() === selectedLocation.toLowerCase();
 
-    const matchSize =
-      sizeFilter === "all"
-        ? true
-        : sizeFilter === "0.25"
-        ? plot.area.includes("0.25")
-        : sizeFilter === "0.5"
-        ? plot.area.includes("0.50")
-        : sizeFilter === "1.0"
-        ? plot.area.includes("1.00") || plot.area.includes("0.75")
+      const matchSize =
+        sizeFilter === "all"
+          ? true
+          : sizeFilter === "0.25"
+          ? plot.area.includes("0.25")
+          : sizeFilter === "0.5"
+          ? plot.area.includes("0.50")
+          : sizeFilter === "1.0"
+          ? plot.area.includes("1.00") || plot.area.includes("0.75")
+          : true;
+
+      const matchSearch = searchQuery.trim()
+        ? [plot.title, plot.location, plot.neighborhood, plot.description, plot.zoning, plot.soil]
+            .join(" ")
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase().trim())
         : true;
 
-    return matchLocation && matchSize;
-  });
+      return matchLocation && matchSize && matchSearch;
+    })
+    .sort((a, b) => {
+      if (sortOrder === "price-asc") return (a.priceNum || 0) - (b.priceNum || 0);
+      if (sortOrder === "price-desc") return (b.priceNum || 0) - (a.priceNum || 0);
+      return 0;
+    });
 
   const getWhatsAppLink = (plot) => {
     const text = `Hello Joseph Simiyu Kefa, I would like to schedule a beacon and title inspection site viewing for the land: ${plot.title} (${plot.price}).`;
@@ -168,15 +183,18 @@ export default function LandPage() {
     <main className={styles.pageWrapper}>
       <SpheraHeader />
 
-      {/* Hero Header */}
+      {/* Hero Header with continuous background extending behind navbar and filters */}
       <section className={styles.pageHero}>
-        <div className="container">
-          <div className={styles.breadcrumb}>
-            <Link href="/">Home</Link>
-            <span>/</span>
-            <span>Land</span>
-          </div>
+        <Image
+          src="/images/land-lavington.jpg"
+          alt="Prime Land and Building Plots Nairobi"
+          fill
+          priority
+          className={styles.heroBgImage}
+        />
+        <div className={styles.heroOverlay} />
 
+        <div className={`container ${styles.heroContent}`}>
           <div className={styles.heroTag}>VERIFIED PRIME LAND PLOTS</div>
           <h1 className={styles.title}>Prime Land &amp; Building Plots</h1>
           <p className={styles.subtitle}>
@@ -185,117 +203,158 @@ export default function LandPage() {
             Lavington. What you see is what you get — accurate GPS coordinates,
             physical beacon verification, and clean deed titles.
           </p>
-        </div>
-      </section>
 
-      {/* Filter Section */}
-      <section className={styles.filterSection}>
-        <div className="container">
-          <div className={styles.filterGrid}>
-            <div className={styles.filterGroup}>
-              <label className={styles.filterLabel}>Location Filter</label>
-              <select
-                value={selectedLocation}
-                onChange={(e) => setSelectedLocation(e.target.value)}
-                className={styles.filterSelect}
-              >
-                <option value="Westlands & Lavington">
-                  Westlands &amp; Lavington (Default Prime)
-                </option>
-                <option value="Westlands">Westlands Only</option>
-                <option value="Lavington">Lavington Only</option>
-                <option value="Karen">Karen</option>
-                <option value="All">All Nairobi Locations</option>
-              </select>
-            </div>
+          {/* Unified Glassmorphism Filter & Search Card */}
+          <div className={styles.filterCard}>
+            <div className={styles.filterMainRow}>
+              {/* Actual Location Search Input */}
+              <div className={styles.filterGroup}>
+                <label className={styles.filterLabel}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  </svg>
+                  <span>Search Location &amp; Parcel</span>
+                </label>
+                <div className={styles.searchBoxWrapper}>
+                  <div className={styles.searchIcon}>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <circle cx="11" cy="11" r="8" />
+                      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                  </div>
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search road, area, or street (e.g. Lavington, James Gichuru)..."
+                    className={styles.searchInput}
+                  />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchQuery("")}
+                      className={styles.clearSearchBtn}
+                      title="Clear search"
+                    >
+                      ✕
+                    </button>
+                  )}
+                </div>
+              </div>
 
-            <div className={styles.filterGroup}>
-              <label className={styles.filterLabel}>Plot Acreage</label>
-              <select
-                value={sizeFilter}
-                onChange={(e) => setSizeFilter(e.target.value)}
-                className={styles.filterSelect}
-              >
-                <option value="all">Any Acreage</option>
-                <option value="0.25">0.25 Acre (Quarter)</option>
-                <option value="0.5">0.50 Acre (Half)</option>
-                <option value="1.0">0.75 - 1.0+ Acre</option>
-              </select>
-            </div>
+              {/* Location Select */}
+              <div className={styles.filterGroup}>
+                <label className={styles.filterLabel}>Location Zone</label>
+                <select
+                  value={selectedLocation}
+                  onChange={(e) => setSelectedLocation(e.target.value)}
+                  className={styles.filterSelect}
+                >
+                  <option value="Westlands & Lavington">
+                    Westlands &amp; Lavington (Featured)
+                  </option>
+                  <option value="Westlands">Westlands Only</option>
+                  <option value="Lavington">Lavington Only</option>
+                  <option value="Karen">Karen</option>
+                  <option value="All">All Nairobi Locations</option>
+                </select>
+              </div>
 
-            <div className={styles.filterGroup}>
-              <label className={styles.filterLabel}>Direct Representative</label>
-              <div
-                style={{
-                  padding: "11px 14px",
-                  backgroundColor: "#1f2127",
-                  borderRadius: "12px",
-                  fontSize: "13px",
-                  color: "#ffd8a8",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                }}
-              >
-                Joseph S. Kefa (0722705898)
+              {/* Plot Acreage */}
+              <div className={styles.filterGroup}>
+                <label className={styles.filterLabel}>Plot Acreage</label>
+                <select
+                  value={sizeFilter}
+                  onChange={(e) => setSizeFilter(e.target.value)}
+                  className={styles.filterSelect}
+                >
+                  <option value="all">Any Acreage</option>
+                  <option value="0.25">0.25 Acre (Quarter)</option>
+                  <option value="0.5">0.50 Acre (Half)</option>
+                  <option value="1.0">0.75 - 1.0+ Acre</option>
+                </select>
+              </div>
+
+              {/* Sort Order */}
+              <div className={styles.filterGroup}>
+                <label className={styles.filterLabel}>Sort Order</label>
+                <select
+                  value={sortOrder}
+                  onChange={(e) => setSortOrder(e.target.value)}
+                  className={styles.filterSelect}
+                >
+                  <option value="default">Featured Selection</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                </select>
               </div>
             </div>
 
-            <div className={styles.filterGroup}>
-              <label className={styles.filterLabel}>Title Status</label>
-              <div
-                style={{
-                  padding: "11px 14px",
-                  backgroundColor: "#1f2127",
-                  borderRadius: "12px",
-                  fontSize: "13px",
-                  color: "#25d366",
-                  fontWeight: "600",
-                  border: "1px solid rgba(37,211,102,0.2)",
+            {/* Quick Location Pills */}
+            <div className={styles.locationPills}>
+              <span style={{ fontSize: "12px", color: "var(--text-muted)" }}>Quick Selection:</span>
+              <button
+                type="button"
+                className={`${styles.locationPill} ${
+                  selectedLocation === "Westlands & Lavington" && !searchQuery ? styles.locationPillActive : ""
+                }`}
+                onClick={() => {
+                  setSelectedLocation("Westlands & Lavington");
+                  setSearchQuery("");
                 }}
               >
-                Deed &amp; Beacon Verified
-              </div>
+                Westlands &amp; Lavington (Featured)
+              </button>
+              <button
+                type="button"
+                className={`${styles.locationPill} ${
+                  selectedLocation === "Westlands" ? styles.locationPillActive : ""
+                }`}
+                onClick={() => {
+                  setSelectedLocation("Westlands");
+                  setSearchQuery("Westlands");
+                }}
+              >
+                Westlands
+              </button>
+              <button
+                type="button"
+                className={`${styles.locationPill} ${
+                  selectedLocation === "Lavington" ? styles.locationPillActive : ""
+                }`}
+                onClick={() => {
+                  setSelectedLocation("Lavington");
+                  setSearchQuery("Lavington");
+                }}
+              >
+                Lavington
+              </button>
+              <button
+                type="button"
+                className={`${styles.locationPill} ${
+                  selectedLocation === "Karen" ? styles.locationPillActive : ""
+                }`}
+                onClick={() => {
+                  setSelectedLocation("Karen");
+                  setSearchQuery("Karen");
+                }}
+              >
+                Karen
+              </button>
+              <button
+                type="button"
+                className={`${styles.locationPill} ${
+                  selectedLocation === "All" && !searchQuery ? styles.locationPillActive : ""
+                }`}
+                onClick={() => {
+                  setSelectedLocation("All");
+                  setSearchQuery("");
+                }}
+              >
+                Show All
+              </button>
             </div>
-          </div>
-
-          {/* Quick Location Pills */}
-          <div className={styles.locationPills}>
-            <span style={{ fontSize: "12px", color: "var(--text-muted)" }}>Quick Selection:</span>
-            <button
-              type="button"
-              className={`${styles.locationPill} ${
-                selectedLocation === "Westlands & Lavington" ? styles.locationPillActive : ""
-              }`}
-              onClick={() => setSelectedLocation("Westlands & Lavington")}
-            >
-              Westlands &amp; Lavington (Featured)
-            </button>
-            <button
-              type="button"
-              className={`${styles.locationPill} ${
-                selectedLocation === "Westlands" ? styles.locationPillActive : ""
-              }`}
-              onClick={() => setSelectedLocation("Westlands")}
-            >
-              Westlands
-            </button>
-            <button
-              type="button"
-              className={`${styles.locationPill} ${
-                selectedLocation === "Lavington" ? styles.locationPillActive : ""
-              }`}
-              onClick={() => setSelectedLocation("Lavington")}
-            >
-              Lavington
-            </button>
-            <button
-              type="button"
-              className={`${styles.locationPill} ${
-                selectedLocation === "All" ? styles.locationPillActive : ""
-              }`}
-              onClick={() => setSelectedLocation("All")}
-            >
-              Show All
-            </button>
           </div>
         </div>
       </section>
@@ -365,6 +424,13 @@ export default function LandPage() {
                       rel="noopener noreferrer"
                       className={styles.whatsappBtn}
                     >
+                      <Image
+                        src="/images/coordinator.jpeg"
+                        alt="Joseph Simiyu Kefa"
+                        width={18}
+                        height={18}
+                        style={{ borderRadius: "50%", objectFit: "cover", border: "1px solid #ffd8a8" }}
+                      />
                       <span>WhatsApp Joseph</span>
                     </a>
                   </div>

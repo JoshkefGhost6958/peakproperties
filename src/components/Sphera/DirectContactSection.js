@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import ScrollReveal from "@/components/Effects/ScrollReveal";
 import styles from "./DirectContactSection.module.css";
 
@@ -19,10 +20,21 @@ export default function DirectContactSection() {
               Ready to find your property or start building?
             </h2>
 
-            <div>
-              <div className={styles.personName}>Joseph Simiyu Kefa</div>
-              <div className={styles.personRole}>
-                Peak Housing Senior Representative &amp; Property Coordinator
+            <div className={styles.personHeader}>
+              <div className={styles.personAvatar}>
+                <Image
+                  src="/images/coordinator.jpeg"
+                  alt="Joseph Simiyu Kefa"
+                  fill
+                  sizes="56px"
+                  className={styles.personAvatarImg}
+                />
+              </div>
+              <div>
+                <div className={styles.personName}>Joseph Simiyu Kefa</div>
+                <div className={styles.personRole}>
+                  Peak Housing Senior Representative &amp; Property Coordinator
+                </div>
               </div>
             </div>
 
@@ -37,7 +49,7 @@ export default function DirectContactSection() {
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               </svg>
               <span className={styles.mottoText}>
-                Our Guarantee: What you see is what you get.
+                The Peak Housing Standard: What you see is what you get.
               </span>
             </div>
           </div>

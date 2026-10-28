@@ -49,8 +49,19 @@ export default function SpheraFooter({ onOpenLegal, onOpenSiteViewing }) {
           {/* Direct Representative */}
           <div className={styles.contactCol}>
             <span className={styles.colTitle}>Direct Representative</span>
-            <div style={{ fontSize: "15px", fontWeight: "700", color: "#ffffff" }}>
-              Joseph Simiyu Kefa
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "2px", marginBottom: "6px" }}>
+              <div style={{ position: "relative", width: "32px", height: "32px", borderRadius: "50%", overflow: "hidden", border: "1.5px solid #ffd8a8", flexShrink: 0 }}>
+                <Image
+                  src="/images/coordinator.jpeg"
+                  alt="Joseph Simiyu Kefa"
+                  fill
+                  sizes="32px"
+                  style={{ objectFit: "cover", objectPosition: "center 10%" }}
+                />
+              </div>
+              <div style={{ fontSize: "15px", fontWeight: "700", color: "#ffffff" }}>
+                Joseph Simiyu Kefa
+              </div>
             </div>
             <a href="tel:0722705898" className={styles.contactItem}>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

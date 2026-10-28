@@ -107,13 +107,6 @@ export default function CaseStudyModal({ project, onClose, onBookViewing }) {
                   textDecoration: "none",
                 }}
               >
-                <Image
-                  src="/images/coordinator.jpeg"
-                  alt="Joseph Simiyu Kefa"
-                  width={22}
-                  height={22}
-                  style={{ borderRadius: "50%", objectFit: "cover", border: "1.5px solid #ffffff" }}
-                />
                 <span>WhatsApp Joseph Kefa (0722705898)</span>
               </a>
             </div>

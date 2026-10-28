@@ -384,13 +384,6 @@ export default function VillasPage() {
                       rel="noopener noreferrer"
                       className={styles.whatsappBtn}
                     >
-                      <Image
-                        src="/images/coordinator.jpeg"
-                        alt="Joseph Simiyu Kefa"
-                        width={18}
-                        height={18}
-                        style={{ borderRadius: "50%", objectFit: "cover", border: "1px solid #ffd8a8" }}
-                      />
                       <span>WhatsApp Joseph</span>
                     </a>
                   </div>

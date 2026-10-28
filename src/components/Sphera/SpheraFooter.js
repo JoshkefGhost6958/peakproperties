@@ -93,7 +93,6 @@ export default function SpheraFooter({ onOpenLegal, onOpenSiteViewing }) {
           <div className={styles.legalLinks}>
             <Link href="/about" className={styles.legalLink}>About Us</Link>
             <Link href="/contact" className={styles.legalLink}>Contact Us</Link>
-            <Link href="/admin/login" className={styles.legalLink}>Admin Portal</Link>
           </div>
         </div>
       </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
 import ScrollReveal from "@/components/Effects/ScrollReveal";
 import styles from "./SpheraAbout.module.css";
 
@@ -302,13 +301,6 @@ export default function SpheraAbout({ onOpenSiteViewing }) {
                 rel="noopener noreferrer"
                 className={styles.secondaryActionBtn}
               >
-                <Image
-                  src="/images/coordinator.jpeg"
-                  alt="Joseph Simiyu Kefa"
-                  width={20}
-                  height={20}
-                  style={{ borderRadius: "50%", objectFit: "cover", border: "1.5px solid #ffd8a8" }}
-                />
                 <span>WhatsApp Joseph Directly</span>
               </a>
             </div>

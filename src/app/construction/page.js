@@ -152,13 +152,6 @@ Details: ${formData.notes || "None provided"}`;
               rel="noopener noreferrer"
               className={styles.secondaryBtn}
             >
-              <Image
-                src="/images/coordinator.jpeg"
-                alt="Joseph Simiyu Kefa"
-                width={20}
-                height={20}
-                style={{ borderRadius: "50%", objectFit: "cover", border: "1.5px solid #ffd8a8" }}
-              />
               <span>Consult Joseph (0722705898)</span>
             </a>
           </div>

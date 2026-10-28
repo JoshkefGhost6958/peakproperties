@@ -370,13 +370,6 @@ export default function BnBsPage() {
                       rel="noopener noreferrer"
                       className={styles.whatsappBtn}
                     >
-                      <Image
-                        src="/images/coordinator.jpeg"
-                        alt="Joseph Simiyu Kefa"
-                        width={18}
-                        height={18}
-                        style={{ borderRadius: "50%", objectFit: "cover", border: "1px solid #ffd8a8" }}
-                      />
                       <span>Book on WhatsApp</span>
                     </a>
                   </div>

@@ -161,7 +161,6 @@ export default function ApartmentsPage() {
         <div className={styles.heroOverlay} />
 
         <div className={`container ${styles.heroContent}`}>
-          <div className={styles.heroTag}>VERIFIED MODERN APARTMENTS</div>
           <h1 className={styles.title}>Luxury &amp; Executive Apartments</h1>
           <p className={styles.subtitle}>
             Hand-curated executive apartments and penthouses. Search filters default

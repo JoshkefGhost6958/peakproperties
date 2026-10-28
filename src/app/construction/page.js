@@ -126,7 +126,6 @@ Details: ${formData.notes || "None provided"}`;
         />
 
         <div className={`container ${styles.heroContent}`}>
-          <div className={styles.heroTag}>VERIFIED CONTRACTORS &amp; ARCHITECTS</div>
           <h1 className={styles.title}>
             Let&apos;s Build You Your <br />
             <span className={styles.titleHighlight}>Dream House.</span>
@@ -221,7 +220,6 @@ Details: ${formData.notes || "None provided"}`;
         <div className="container">
           <div className={styles.inquiryGrid}>
             <div className={styles.inquiryContent}>
-              <div className={styles.heroTag}>GET STARTED TODAY</div>
               <h2>Tell Us About Your Dream House Project</h2>
               <p>
                 Whether you already have a plot in Westlands, Lavington, or Karen,
@@ -400,7 +398,6 @@ Details: ${formData.notes || "None provided"}`;
       <section className={styles.showcaseSection}>
         <div className="container">
           <div className={styles.sectionHeader}>
-            <div className={styles.sectionTag}>PORTFOLIO OF EXCELLENCE</div>
             <h2 className={styles.sectionTitle}>Completed Dream Houses</h2>
             <p className={styles.sectionDesc}>
               Real examples of architectural renderings brought to physical

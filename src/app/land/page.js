@@ -195,7 +195,6 @@ export default function LandPage() {
         <div className={styles.heroOverlay} />
 
         <div className={`container ${styles.heroContent}`}>
-          <div className={styles.heroTag}>VERIFIED PRIME LAND PLOTS</div>
           <h1 className={styles.title}>Prime Land &amp; Building Plots</h1>
           <p className={styles.subtitle}>
             Authentic, title-verified parcels ready for luxury home construction

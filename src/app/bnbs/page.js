@@ -158,7 +158,6 @@ export default function BnBsPage() {
         <div className={styles.heroOverlay} />
 
         <div className={`container ${styles.heroContent}`}>
-          <div className={styles.heroTag}>VERIFIED BOUTIQUE BNBS</div>
           <h1 className={styles.title}>Luxury BnBs &amp; Short Stays</h1>
           <p className={styles.subtitle}>
             Experience hand-verified furnished apartments and private boutique

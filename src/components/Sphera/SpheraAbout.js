@@ -224,11 +224,6 @@ export default function SpheraAbout({ onOpenSiteViewing }) {
         <ScrollReveal>
           {/* Top Header & Ethos Statement */}
           <div className={styles.headerBlock}>
-            <div className={styles.ethosTag}>
-              <span className={styles.tagDot} />
-              <span>THE PEAK HOUSING STANDARD · VILLAS TO PENTHOUSES</span>
-            </div>
-
             <h2 className={styles.heading}>
               What you see <span className={styles.headingHighlight}>is what you get</span>
               <br />

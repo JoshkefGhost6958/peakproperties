@@ -205,22 +205,6 @@ export default function SpheraHero({ onSelectProject, onOpenSiteViewing }) {
               ))}
             </div>
 
-            {/* Verification Tag */}
-            <div className={styles.mottoBadge}>
-              <svg
-                className={styles.mottoCheck}
-                width="13"
-                height="13"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              <span>{activeSlide.tag}</span>
-            </div>
-
             <h1 className={styles.brandTitle}>{activeSlide.headline}</h1>
             <p className={styles.tagline}>{activeSlide.subtitle}</p>
 

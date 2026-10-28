@@ -66,7 +66,6 @@ export default function ContactPage() {
         <div className={styles.heroOverlay} />
 
         <div className={`container ${styles.heroContent}`}>
-          <div className={styles.heroTag}>DIRECT CLIENT ADVISORY</div>
           <h1 className={styles.title}>
             Get In Touch With <br />
             <span className={styles.titleHighlight}>Peak Housing.</span>

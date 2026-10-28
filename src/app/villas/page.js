@@ -159,7 +159,6 @@ export default function VillasPage() {
         <div className={styles.heroOverlay} />
 
         <div className={`container ${styles.heroContent}`}>
-          <div className={styles.heroTag}>VERIFIED LUXURY VILLAS</div>
           <h1 className={styles.title}>Luxury Contemporary Villas</h1>
           <p className={styles.subtitle}>
             Explore our curated collection of verified private villas in prime

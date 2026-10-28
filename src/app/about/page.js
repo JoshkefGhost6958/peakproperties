@@ -23,7 +23,6 @@ export default function AboutPage() {
         <div className={styles.heroOverlay} />
 
         <div className={`container ${styles.heroContent}`}>
-          <div className={styles.heroTag}>OUR ETHOS &amp; PROMISE</div>
           <h1 className={styles.title}>
             What You See <br />
             <span className={styles.titleHighlight}>Is What You Get.</span>
@@ -41,7 +40,6 @@ export default function AboutPage() {
         <div className="container">
           <div className={styles.storyGrid}>
             <div className={styles.storyContent}>
-              <div className={styles.heroTag}>THE PROBLEM WE SOLVE</div>
               <h2>Ending False Advertising in Real Estate &amp; Construction</h2>
               <p>
                 For years, finding a home or building a private residence in Nairobi
@@ -79,7 +77,6 @@ export default function AboutPage() {
       <section className={styles.guaranteeSection}>
         <div className="container">
           <div style={{ textAlign: "center", maxWidth: "600px", margin: "0 auto" }}>
-            <div className={styles.heroTag}>THE THREE PILLARS</div>
             <h2 style={{ fontSize: "36px", fontWeight: "800", letterSpacing: "-0.02em" }}>
               How We Protect Every Client
             </h2>

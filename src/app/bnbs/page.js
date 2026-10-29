@@ -252,59 +252,6 @@ export default function BnBsPage() {
                 </select>
               </div>
             </div>
-
-            {/* Quick Location Pills */}
-            <div className={styles.locationPills}>
-              <span style={{ fontSize: "12px", color: "var(--text-muted)" }}>Quick Selection:</span>
-              <button
-                type="button"
-                className={`${styles.locationPill} ${
-                  selectedLocation === "Westlands & Lavington" && !searchQuery ? styles.locationPillActive : ""
-                }`}
-                onClick={() => {
-                  setSelectedLocation("Westlands & Lavington");
-                  setSearchQuery("");
-                }}
-              >
-                Westlands &amp; Lavington (Featured)
-              </button>
-              <button
-                type="button"
-                className={`${styles.locationPill} ${
-                  selectedLocation === "Westlands" ? styles.locationPillActive : ""
-                }`}
-                onClick={() => {
-                  setSelectedLocation("Westlands");
-                  setSearchQuery("");
-                }}
-              >
-                Westlands
-              </button>
-              <button
-                type="button"
-                className={`${styles.locationPill} ${
-                  selectedLocation === "Lavington" ? styles.locationPillActive : ""
-                }`}
-                onClick={() => {
-                  setSelectedLocation("Lavington");
-                  setSearchQuery("");
-                }}
-              >
-                Lavington
-              </button>
-              <button
-                type="button"
-                className={`${styles.locationPill} ${
-                  selectedLocation === "All" && !searchQuery ? styles.locationPillActive : ""
-                }`}
-                onClick={() => {
-                  setSelectedLocation("All");
-                  setSearchQuery("");
-                }}
-              >
-                Show All
-              </button>
-            </div>
           </div>
         </div>
       </section>
@@ -314,7 +261,7 @@ export default function BnBsPage() {
         <div className="container">
           <div className={styles.resultsHeader}>
             <span className={styles.resultsCount}>
-              Showing {filteredBnBs.length} verified stays in {selectedLocation}
+              Showing {filteredBnBs.length} stays in {selectedLocation}
             </span>
           </div>
 
@@ -329,7 +276,6 @@ export default function BnBsPage() {
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className={styles.cardImg}
                   />
-                  <span className={styles.verifiedBadge}>Verified BnB</span>
                   <div className={styles.locationBadge}>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />

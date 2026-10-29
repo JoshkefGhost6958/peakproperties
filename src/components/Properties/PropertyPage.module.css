@@ -32,14 +32,14 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(14, 15, 18, 0.5) 0%,
-    rgba(14, 15, 18, 0.72) 40%,
-    rgba(14, 15, 18, 0.92) 85%,
+    rgba(14, 15, 18, 0.42) 0%,
+    rgba(14, 15, 18, 0.62) 45%,
+    rgba(14, 15, 18, 0.82) 85%,
     #0e0f12 100%
   ),
   radial-gradient(
     circle at 75% 25%,
-    rgba(255, 216, 168, 0.1) 0%,
+    rgba(255, 216, 168, 0.08) 0%,
     transparent 65%
   );
   z-index: 1;
@@ -50,22 +50,6 @@
   position: relative;
   z-index: 2;
   max-width: 1320px;
-}
-
-.heroTag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(255, 216, 168, 0.12);
-  color: #ffd8a8;
-  border: 1px solid rgba(255, 216, 168, 0.28);
-  padding: 5px 14px;
-  border-radius: var(--radius-pill);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
 }
 
 .title {
@@ -87,14 +71,14 @@
 
 /* Glassmorphism Filter Card Inside Hero (Under continuous background image) */
 .filterCard {
-  margin-top: 36px;
-  background: rgba(18, 20, 26, 0.75);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
+  margin-top: 32px;
+  background: rgba(14, 16, 22, 0.48);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 20px;
-  padding: 24px 28px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  border-radius: 18px;
+  padding: 20px 24px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
 }
 
 .filterMainRow {
@@ -157,8 +141,10 @@
 .searchInput {
   width: 100%;
   padding: 12px 38px 12px 42px;
-  background-color: #17181e;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(18, 20, 26, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 12px;
   color: #ffffff;
   font-size: 13.5px;
@@ -169,7 +155,7 @@
 .searchInput:focus {
   border-color: #ffd8a8;
   box-shadow: 0 0 0 3px rgba(255, 216, 168, 0.16);
-  background-color: #1c1e24;
+  background: rgba(22, 24, 32, 0.75);
 }
 
 .clearSearchBtn {
@@ -197,8 +183,10 @@
 .filterSelect, .filterInput {
   width: 100%;
   padding: 12px 14px;
-  background-color: #17181e;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(18, 20, 26, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 12px;
   color: #ffffff;
   font-size: 13.5px;
@@ -210,7 +198,7 @@
 .filterSelect:focus, .filterInput:focus {
   border-color: #ffd8a8;
   box-shadow: 0 0 0 3px rgba(255, 216, 168, 0.16);
-  background-color: #1c1e24;
+  background: rgba(22, 24, 32, 0.75);
 }
 
 

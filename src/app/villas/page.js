@@ -251,71 +251,6 @@ export default function VillasPage() {
                 </select>
               </div>
             </div>
-
-            {/* Quick Location Pills */}
-            <div className={styles.locationPills}>
-              <span style={{ fontSize: "12px", color: "var(--text-muted)" }}>Quick Filter:</span>
-              <button
-                type="button"
-                className={`${styles.locationPill} ${
-                  selectedLocation === "Westlands & Lavington" && !searchQuery ? styles.locationPillActive : ""
-                }`}
-                onClick={() => {
-                  setSelectedLocation("Westlands & Lavington");
-                  setSearchQuery("");
-                }}
-              >
-                Westlands &amp; Lavington (Featured)
-              </button>
-              <button
-                type="button"
-                className={`${styles.locationPill} ${
-                  selectedLocation === "Westlands" ? styles.locationPillActive : ""
-                }`}
-                onClick={() => {
-                  setSelectedLocation("Westlands");
-                  setSearchQuery("Westlands");
-                }}
-              >
-                Westlands
-              </button>
-              <button
-                type="button"
-                className={`${styles.locationPill} ${
-                  selectedLocation === "Lavington" ? styles.locationPillActive : ""
-                }`}
-                onClick={() => {
-                  setSelectedLocation("Lavington");
-                  setSearchQuery("Lavington");
-                }}
-              >
-                Lavington
-              </button>
-              <button
-                type="button"
-                className={`${styles.locationPill} ${
-                  selectedLocation === "Karen" ? styles.locationPillActive : ""
-                }`}
-                onClick={() => {
-                  setSelectedLocation("Karen");
-                  setSearchQuery("Karen");
-                }}
-              >
-                Karen
-              </button>
-              <button
-                type="button"
-                className={`${styles.locationPill} ${
-                  selectedLocation === "All" && !searchQuery ? styles.locationPillActive : ""
-                }`}
-                onClick={() => {
-                  setSelectedLocation("All");
-                  setSearchQuery("");
-                }}
-              >
-                Show All
-              </button>
-            </div>
           </div>
         </div>
       </section>
@@ -325,8 +260,7 @@ export default function VillasPage() {
         <div className="container">
           <div className={styles.resultsHeader}>
             <span className={styles.resultsCount}>
-              Showing {filteredVillas.length} verified luxury villas in{" "}
-              {selectedLocation}
+              Showing {filteredVillas.length} luxury villas in {selectedLocation}
             </span>
           </div>
 
@@ -341,7 +275,6 @@ export default function VillasPage() {
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className={styles.cardImg}
                   />
-                  <span className={styles.verifiedBadge}>Verified Listing</span>
                   <div className={styles.locationBadge}>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
